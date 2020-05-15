@@ -25,8 +25,9 @@
 
 </head>
 <body>
-	<%@ include file="/header.jsp"%>
-	<%@ include file="/filterBar.jsp"%>
+
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/filterBar.jsp"></jsp:include>
 	<br>
 	<div style="text-align: center; margin-left: 10%">
 		<div class="row row-cols-1 row-cols-md-3"
@@ -95,7 +96,7 @@
 	<script src="${pageContext.request.contextPath}/Javascript/product.js"></script>
 
 
-	<%@ include file="/footer.jsp"%>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 
 </body>
 </html>

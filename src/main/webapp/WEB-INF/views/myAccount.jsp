@@ -31,8 +31,8 @@
 
 </head>
 <body>
-	<%@ include file="/header.jsp"%>
 
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container padding-bottom-3x mb-2">
 		<div class="row">
 			<div class="col-lg-4">
@@ -62,7 +62,6 @@
 
 		</div>
 	</div>
-	
-	<%@ include file="/footer.jsp"%>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

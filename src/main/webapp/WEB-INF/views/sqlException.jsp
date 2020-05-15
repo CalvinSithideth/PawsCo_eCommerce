@@ -15,15 +15,15 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%@ include file="/header.jsp"%>
 
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div style="text-align: center">
 		<div style="width: 80%; display: inline-block; padding: 50px">
 			<h5>Yo dawg, update the password in META-INF/context.xml</h5>
 			<h5>Failing that, run the current version of pawsco.sql located in the project root folder</h5>
 		</div>
 	</div>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 
-    <%@ include file="/footer.jsp"%>
 </body>
 </html>

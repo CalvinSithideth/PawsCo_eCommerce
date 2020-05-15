@@ -12,8 +12,8 @@
 <script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%@ include file="/header.jsp"%>
-	
+
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-4">Frequently Asked Questions</h1>
@@ -108,7 +108,7 @@
 			</div>
 		</div>
 
-		<%@ include file="/footer.jsp"%>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 		<script src="../Javascript/home.js"></script>
 </body>
 </html>

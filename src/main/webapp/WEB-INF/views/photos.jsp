@@ -16,7 +16,8 @@
 
 </head>
 <body>
-	<%@ include file="/header.jsp"%>		
+
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>		
 	<div style="text-align: center">
 		<br>
 		<h3>Photos</h3>
@@ -53,7 +54,8 @@
 		</a>
 			</div> <br> <br>
 			</div>
-			</div> <%@ include file="/footer.jsp"%> <script
-				src="../Javascript/home.js"></script>
+
+			<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+			<script src="../Javascript/home.js"></script>
 </body>
 </html>
