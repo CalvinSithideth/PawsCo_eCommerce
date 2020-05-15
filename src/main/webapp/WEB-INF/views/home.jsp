@@ -18,7 +18,6 @@
 <body>
 
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-
 	<div id="carouselExampleCaptions"
 		class="carousel slide mx-auto d-block" data-ride="carousel"
 		style="width: 60%;">
