@@ -16,7 +16,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%@ include file="/header.jsp"%>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<div style="text-align: center">
 		<div style="width: 80%; display: inline-block; padding: 50px">
@@ -25,6 +25,6 @@
 		</div>
 	</div>
 
-    <%@ include file="/footer.jsp"%>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

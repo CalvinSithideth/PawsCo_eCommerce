@@ -17,8 +17,8 @@
 
 </head>
 <body>
-	<%@ include file="/header.jsp"%>
 
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container bootstrap snippet" style="padding-bottom: 40px">
 		<div class="col-md-9 col-sm-8 content">
 
@@ -36,8 +36,8 @@
 	<!-- 	<button id="test">TEST</button> -->
 
 
-	<%@ include file="/footer.jsp"%>
-	
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+
 	<script src="../Javascript/home.js"></script>
 </body>
 </html>

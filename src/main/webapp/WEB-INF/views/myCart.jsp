@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<%@ include file="/header.jsp"%>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<h3>Shopping Cart</h3>
 
 	<table>
@@ -78,7 +78,7 @@
 	<br><br>
 
 
-	<%@ include file="/footer.jsp"%>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 
 	<script src="../Javascript/home.js"></script>
 </body>
