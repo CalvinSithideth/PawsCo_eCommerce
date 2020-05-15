@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<%@ include file="/header.jsp"%>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	
 	<div id="header">
 		<h3>Cancellation & Returns</h3>
@@ -148,7 +148,7 @@
 		</div>
 	</div>
 
-	<%@ include file="/footer.jsp"%>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 	
 </body>
 </html>

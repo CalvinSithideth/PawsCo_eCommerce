@@ -16,7 +16,7 @@
 
 </head>
 <body>
-	<%@ include file="/header.jsp"%>		
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div style="text-align: center">
 		<br>
 		<h3>Photos</h3>
@@ -27,33 +27,37 @@
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleIndicators" data-slide-to="0"
 						class="active"></li>
-		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li></ol>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="d-block w-100" src="Image/storefront.jpg"
-						alt="First slide">
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="d-block w-100" src="Image/storefront.jpg"
+							alt="First slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="Image/interior.jpg"
+							alt="Second slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="Image/customers.jpg"
+							alt="Third slide">
+					</div>
 				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="Image/interior.jpg"
-						alt="Second slide">
-				</div>
-				<div class="carousel-item">
-					<img class="d-block w-100" src="Image/customers.jpg"
-						alt="Third slide">
-				</div>
-			</div> <a class="carousel-control-prev" href="#carouselExampleIndicators"
-			role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="sr-only">Previous</span>
-		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
-			role="button" data-slide="next"> <span
-				class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="sr-only">Next</span>
-		</a>
-			</div> <br> <br>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators"
+					role="button" data-slide="prev"> <span
+					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="sr-only">Previous</span>
+				</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+					role="button" data-slide="next"> <span
+					class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="sr-only">Next</span>
+				</a>
 			</div>
-			</div> <%@ include file="/footer.jsp"%> <script
-				src="../Javascript/home.js"></script>
+			<br> <br>
+		</div>
+	</div>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<script src="../Javascript/home.js"></script>
 </body>
 </html>

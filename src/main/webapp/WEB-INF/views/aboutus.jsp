@@ -12,7 +12,7 @@
 
 </head>
 <body>
-	<%@ include file="/header.jsp"%>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<div style="text-align: center">
 		<br><h3>About Us</h3><br>
@@ -94,7 +94,7 @@
 		</div>
 	</div>
 
-		<%@ include file="/footer.jsp"%>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 		
 	<script src="../Javascript/home.js"></script>
 </body>

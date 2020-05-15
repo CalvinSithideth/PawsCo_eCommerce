@@ -26,7 +26,7 @@
 </head>
 <body>
 
-	<%@ include file="/header.jsp"%>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<div class="container">
 		<h1>Payment Methods</h1>
@@ -81,6 +81,6 @@
 			within 24 hours, we'll cancel the order.</p>
 	</div>
 
-	<%@ include file="/footer.jsp"%>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

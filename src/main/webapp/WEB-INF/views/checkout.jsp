@@ -12,7 +12,7 @@
 <title>Checkout</title>
 </head>
 <body class="bg-light">
-	<%@ include file="/header.jsp"%>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<div class="container">
 		<h3 style="text-align: center">Checkout</h3>
@@ -489,7 +489,7 @@
 		</div>
 	</div>
 
-	<%@ include file="/footer.jsp"%>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

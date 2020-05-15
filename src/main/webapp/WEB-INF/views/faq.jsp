@@ -2,18 +2,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Frequently Asked Questions</title>
 <link href="Style/faq.css" rel="stylesheet" type="text/css" />
 <link href="Style/header.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-<script	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%@ include file="/header.jsp"%>
-	
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-4">Frequently Asked Questions</h1>
@@ -31,8 +34,8 @@
 				</h2>
 			</div>
 
-			<div id="collapseOne" class="collapse"
-				aria-labelledby="headingOne" data-parent="#accordionExample">
+			<div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+				data-parent="#accordionExample">
 				<div class="card-body">We are not a puppy mill. We obey the
 					law.</div>
 			</div>
@@ -78,8 +81,8 @@
 				</h2>
 			</div>
 
-			<div id="collapseFour" class="collapse"
-				aria-labelledby="headingOne" data-parent="#accordionExample">
+			<div id="collapseFour" class="collapse" aria-labelledby="headingOne"
+				data-parent="#accordionExample">
 				<div class="card-body">Please rest assured that your
 					satisfaction is our top priority-that's why we're always working to
 					bring you brand-name items at the lowest possible prices. However,
@@ -99,8 +102,8 @@
 			<div id="collapseFive" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionExample">
 				<div class="card-body">The inventory on our website is
-					real-time and updated frequently. If the item you’re looking for is
-					not found on Costco.com, it's either not available online or
+					real-time and updated frequently. If the item you’re looking for
+					is not found on Costco.com, it's either not available online or
 					currently out of stock. When the item is available for purchase
 					again, it will re-appear on the site. The site is completely up to
 					date, so we encourage you to check the site frequently for changes
@@ -108,7 +111,7 @@
 			</div>
 		</div>
 
-		<%@ include file="/footer.jsp"%>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 		<script src="../Javascript/home.js"></script>
 </body>
 </html>
