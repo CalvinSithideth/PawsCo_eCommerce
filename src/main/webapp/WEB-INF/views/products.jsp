@@ -1,6 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,12 +31,13 @@
 	<div style="text-align: center; margin-left: 10%">
 		<div class="row row-cols-1 row-cols-md-3"
 			style="width: 80%; text-align: left">
-			<c:set var="results" value="0"/>
+			<c:set var="results" value="0" />
 			<c:forEach var="product" items="${applicationScope.products}">
-				<fmt:parseNumber var="min" value="${param.min}"/>
-				<fmt:parseNumber var="max" value="${param.max}"/>
-				<c:if test="${param.filter == null && param.min == null && param.max == null && param.search == null || param.search != null && fn:containsIgnoreCase(product.value.name, param.search) || product.value.category == param.filter || product.value.price >= min && product.value.price <= max}">
-					<c:set var="results" value="${results + 1}"/>
+				<fmt:parseNumber var="min" value="${param.min}" />
+				<fmt:parseNumber var="max" value="${param.max}" />
+				<c:if
+					test="${param.filter == null && param.min == null && param.max == null && param.search == null || param.search != null && fn:containsIgnoreCase(product.value.name, param.search) || product.value.category == param.filter || product.value.price >= min && product.value.price <= max}">
+					<c:set var="results" value="${results + 1}" />
 					<div class="col mb-4 ${product.value.category}">
 						<div class="card h-100 item-card">
 							<!--Card image-->
@@ -87,7 +88,11 @@
 	<c:if test="${results == 0}">
 		<div style="text-align: center">
 			<div style="width: 80%; display: inline-block; padding: 50px">
-				<h4>0 results found for '<c:out value="${param.search}"/>'</h4>
+				<h4>
+					0 results found for '
+					<c:out value="${param.search}" />
+					'
+				</h4>
 			</div>
 		</div>
 	</c:if>
