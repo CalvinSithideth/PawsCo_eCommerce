@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	<%@ include file="/header.jsp"%>
+	<%@ include file="header.jsp"%>
 
 	<div id="carouselExampleCaptions"
 		class="carousel slide mx-auto d-block" data-ride="carousel"
@@ -71,7 +71,7 @@
 		</a>
 	</div>
 
-	<%@ include file="/footer.jsp"%>
+	<%@ include file="footer.jsp"%>
 
 	<script src="${pageContext.request.contextPath}/Javascript/home.js"></script>
 </body>
