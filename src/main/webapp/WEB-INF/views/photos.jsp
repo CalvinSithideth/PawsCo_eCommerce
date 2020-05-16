@@ -5,7 +5,7 @@
 <title>Photos</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="Style/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -13,11 +13,12 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>		
+	<jsp:include page="header.jsp"></jsp:include>		
 	<div style="text-align: center">
 		<br>
 		<h3>Photos</h3>
@@ -32,15 +33,15 @@
 		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li></ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img class="d-block w-100" src="Image/storefront.jpg"
+					<img class="d-block w-100" src="<c:url value ="/resources/images/storefront.jpg"/>"
 						alt="First slide">
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" src="Image/interior.jpg"
+					<img class="d-block w-100" src="<c:url value ="/resources/images/interior.jpg"/>"
 						alt="Second slide">
 				</div>
 				<div class="carousel-item">
-					<img class="d-block w-100" src="Image/customers.jpg"
+					<img class="d-block w-100" src="<c:url value ="/resources/images/customers.jpg"/>"
 						alt="Third slide">
 				</div>
 			</div> <a class="carousel-control-prev" href="#carouselExampleIndicators"
@@ -55,7 +56,7 @@
 			</div> <br> <br>
 			</div>
 
-			<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
-			<script src="../Javascript/home.js"></script>
+			<jsp:include page="footer.jsp"></jsp:include>
+			<script src="resources/js/home.js"></script>
 </body>
 </html>

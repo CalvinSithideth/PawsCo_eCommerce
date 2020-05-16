@@ -8,12 +8,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <!-- Custom styles for this template -->
 <!-- <link href="./css/form-validation.css" rel="stylesheet"> -->
-<link href="Style/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
 <title>Checkout</title>
 </head>
 <body class="bg-light">
 
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 	<div class="container">
 		<h3 style="text-align: center">Checkout</h3>
 		<hr class="mb-4">
@@ -489,7 +489,7 @@
 		</div>
 	</div>
 
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

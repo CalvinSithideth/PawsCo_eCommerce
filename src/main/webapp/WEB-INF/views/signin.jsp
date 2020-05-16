@@ -7,8 +7,8 @@
 <meta charset="ISO-8859-1">
 <title>Sign In</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="Style/header.css" rel="stylesheet" type="text/css">
-<link href="Style/login.css" rel="stylesheet" type="text/css">
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/login.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 	<div style="text-align: center">
 		<div style="width: 80%; display: inline-block">
 			<div class="login-box">
@@ -34,7 +34,7 @@
 					</div>
 				</form>
 				<hr>
-				<a class="register-link" href="register.jsp">
+				<a class="register-link" href="register">
 					New to Pawsco.com? Register here!
 				</a>
 			</div>
@@ -63,7 +63,7 @@
 <!--         <label>&nbsp;</label> -->
 <!--         <input type="submit" value="Sign In" class="margin_left"> -->
 <!--     </form> -->
-    <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
-    <script src="../Javascript/home.js"></script>
+    <jsp:include page="footer.jsp"></jsp:include>
+    <script src="resources/js/home.js"></script>
 </body>
 </html>

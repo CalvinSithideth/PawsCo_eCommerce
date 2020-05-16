@@ -27,7 +27,7 @@ browser is sending to the current server.</p>
   </tr>
   </c:forEach>  
 </table>
-<p><a href="home.jsp?action=home">Return Home</a></p>
+<p><a href="home?action=home">Return Home</a></p>
 <p><a href="register?action=deleteCookies">Delete all persistent cookies</a></p>
 
 </body>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link href="Style/faq.css" rel="stylesheet" type="text/css" />
-<link href="Style/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/faq.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-4">Frequently Asked Questions</h1>
@@ -108,7 +108,7 @@
 			</div>
 		</div>
 
-	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
-		<script src="../Javascript/home.js"></script>
+	<jsp:include page="footer.jsp"></jsp:include>
+		<script src="resources/css/home.js"></script>
 </body>
 </html>

@@ -8,11 +8,11 @@
 <title>Products</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="${pageContext.request.contextPath}/Style/product.css"
+<link href="resources/css/product.css"
 	rel="stylesheet" type="text/css" />
-<link href="Style/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/scripts/filter.js"></script>
+	src="resources/js/filter.js"></script>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -26,8 +26,8 @@
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	<jsp:include page="/WEB-INF/views/filterBar.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="filterBar.jsp"></jsp:include>
 	<br>
 	<div style="text-align: center; margin-left: 10%">
 		<div class="row row-cols-1 row-cols-md-3"
@@ -92,11 +92,11 @@
 			</div>
 		</div>
 	</c:if>
-	<script src="${pageContext.request.contextPath}/Javascript/home.js"></script>
-	<script src="${pageContext.request.contextPath}/Javascript/product.js"></script>
+	<script src="resources/js/home.js"></script>
+	<script src="resources/js/product.js"></script>
 
 
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

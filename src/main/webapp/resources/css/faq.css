@@ -6,7 +6,7 @@
 	
 }
 .jumbotron {
-	content: url("../Image/dogjumbotron.jpg");
+	content: url("/resources/images/dogjumbotron.jpg");
 	background-size: cover;
 	width: 40%;
 	display: block;
