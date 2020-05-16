@@ -4,16 +4,18 @@
 <meta charset="ISO-8859-1">
 <title>Shipping</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="Style/shipping.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/shipping.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<link href="Style/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 	<div id="shipping1">
 		<h3>Shipping & Order Services</h3>
 	</div>
@@ -40,7 +42,7 @@
 
 				<!--Card image-->
 				<div class="view overlay">
-					<img class="card-img-top" src="Image/sameday.jpg"
+					<img class="card-img-top" src="<c:url value ="/resources/images/sameday.jpg"/>"
 						alt="Card image cap"> <a href="#!">
 						<div class="mask rgba-white-slight"></div>
 					</a>
@@ -67,7 +69,7 @@
 
 				<!--Card image-->
 				<div class="view overlay">
-					<img class="card-img-top" src="Image/order-pickup.png"
+					<img class="card-img-top" src="<c:url value ="/resources/images/order-pickup.png"/>"
 						alt="Card image cap" style="width: 70%; margin: 20px;"> <a
 						href="#!">
 						<div class="mask rgba-white-slight"></div>
@@ -94,7 +96,7 @@
 
 				<!--Card image-->
 				<div class="view overlay">
-					<img class="card-img-top" src="Image/curbsidepickup.png"
+					<img class="card-img-top" src="<c:url value ="/resources/images/curbsidepickup.png"/>"
 						alt="Card image cap" style="margin-top: 100px;"> <a
 						href="#!">
 						<div class="mask rgba-white-slight"></div>
@@ -126,6 +128,6 @@
 	
 	</div>
 	
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

@@ -82,22 +82,24 @@
 					<hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto"
 						style="width: 60px;">
 					<p>
-						<a class="dark-grey-text" href="aboutus.jsp">About Us</a>
+						<a class="dark-grey-text" href="aboutus">About Us</a>
+					</p>
+					
+					
+					<p>
+						<a class="dark-grey-text" href="careers">Careers</a>
 					</p>
 					<p>
-						<a class="dark-grey-text" href="careers.jsp">Careers</a>
+						<a class="dark-grey-text" href="userstories">User Stories</a>
 					</p>
 					<p>
-						<a class="dark-grey-text" href="userstories.jsp">User Stories</a>
+						<a class="dark-grey-text" href="testimonials">Testimonials</a>
 					</p>
 					<p>
-						<a class="dark-grey-text" href="testimonials.jsp">Testimonials</a>
+						<a class="dark-grey-text" href="press">Press</a>
 					</p>
 					<p>
-						<a class="dark-grey-text" href="press.jsp">Press</a>
-					</p>
-					<p>
-						<a class="dark-grey-text" href="photos.jsp">Photos</a>
+						<a class="dark-grey-text" href="photos">Photos</a>
 					</p>
 
 				</div>
@@ -111,16 +113,16 @@
 					<hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto"
 						style="width: 60px;">
 					<p>
-						<a class="dark-grey-text" href="payments.jsp">Payments</a>
+						<a class="dark-grey-text" href="payments">Payments</a>
 					</p>
 					<p>
-						<a class="dark-grey-text" href="shipping.jsp">Shipping</a>
+						<a class="dark-grey-text" href="shipping">Shipping</a>
 					</p>
 					<p>
-						<a class="dark-grey-text" href="cancellation&return.jsp">Cancellation & Returns</a>
+						<a class="dark-grey-text" href="cancellation&return">Cancellation & Returns</a>
 					</p>
 					<p>
-						<a class="dark-grey-text" href="faq.jsp">FAQ</a>
+						<a class="dark-grey-text" href="faq">FAQ</a>
 					</p>
 
 				</div>

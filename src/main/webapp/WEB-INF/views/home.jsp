@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Welcome to Pawsco Wholesale</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="Style/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 	<div id="carouselExampleCaptions"
 		class="carousel slide mx-auto d-block" data-ride="carousel"
 		style="width: 60%;">
@@ -29,9 +29,9 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<a href="${pageContext.request.contextPath}/products.jsp"> <img
-					src="${pageContext.request.contextPath}/Image/dogfood.jpg"
-					class="d-block w-100" style alt="..." style="width:auto;">
+				<a href="products"> <img
+					src="<c:url value ="/resources/images/dogfood.jpg"/>"
+					class="d-block w-100" alt="..." style="width: auto;">
 				</a>
 				<div class="carousel-caption d-none d-md-block">
 					<h2>NULO FOR DOGS</h2>
@@ -39,8 +39,8 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<a href="${pageContext.request.contextPath}/products.jsp"> <img
-					src="${pageContext.request.contextPath}/Image/dogtoy.jpg"
+				<a href="products"> <img
+					src="<c:url value ="/resources/images/dogtoy.jpg"/>"
 					class="d-block w-100" alt="..." style="width: auto; height: 570px">
 				</a>
 				<div class="carousel-caption d-none d-md-block">
@@ -49,8 +49,8 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<a href="${pageContext.request.contextPath}/products.jsp"> <img
-					src="${pageContext.request.contextPath}/Image/dogshampoo.jpg"
+				<a href="products"> <img
+					src="<c:url value ="/resources/images/dogshampoo.jpg"/>"
 					class="d-block w-100" alt="..." style="width: auto; height: 570px">
 				</a>
 				<div class="carousel-caption d-none d-md-block">
@@ -70,8 +70,8 @@
 		</a>
 	</div>
 
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 
-	<script src="${pageContext.request.contextPath}/Javascript/home.js"></script>
+	<script src="resources/js/home.js"></script>
 </body>
 </html>

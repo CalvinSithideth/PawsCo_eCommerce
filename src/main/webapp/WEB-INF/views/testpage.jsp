@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Test Page</title>
-<link href="Style/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -16,7 +16,7 @@
 </head>
 <body>
 	
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 	
 	<div style="text-align: center">
 		<br>
@@ -29,6 +29,6 @@
 		<br><br>
 	</div>
 
-	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

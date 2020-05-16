@@ -5,7 +5,7 @@
 <title>Wishlist</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="Style/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -13,12 +13,12 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="../Javascript/wishlist.js"></script>
+<script src="resources/js/wishlist.js"></script>
 
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="container bootstrap snippet" style="padding-bottom: 40px">
 		<div class="col-md-9 col-sm-8 content">
 
@@ -36,8 +36,8 @@
 	<!-- 	<button id="test">TEST</button> -->
 
 
-	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
 
-	<script src="../Javascript/home.js"></script>
+	<script src="resources/js/home.js"></script>
 </body>
 </html>

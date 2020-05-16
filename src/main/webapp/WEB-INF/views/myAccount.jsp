@@ -4,13 +4,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Welcome to Pawsco Wholesale</title>
-<link href="Style/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="${pageContext.request.contextPath}/Style/myAccount.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/myAccount.js"></script>
-<script src="${pageContext.request.contextPath}/scripts/wListToCart.js"></script>
-<script src="${pageContext.request.contextPath}/Javascript/temp.js"></script>
-<script src="${pageContext.request.contextPath}/Javascript/wishlist.js"></script>
+<link href="resources/css/myAccount.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="resources/js/myAccount.js"></script>
+<script src="resources/js/wListToCart.js"></script>
+<script src="resources/js/temp.js"></script>
+<script src="resources/js/wishlist.js"></script>
 
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -32,7 +32,7 @@
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 	<div class="container padding-bottom-3x mb-2">
 		<div class="row">
 			<div class="col-lg-4">
@@ -62,6 +62,6 @@
 
 		</div>
 	</div>
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
