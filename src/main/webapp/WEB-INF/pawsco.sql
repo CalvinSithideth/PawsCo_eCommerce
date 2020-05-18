@@ -55,11 +55,11 @@ FOREIGN KEY (Email) REFERENCES Users(Email));
 
 CREATE TABLE OrderDetails (
 OrderID INT NOT NULL,
-Email VARCHAR(40) NOT NULL,
 ProductID INT NOT NULL,
+Email NVARCHAR(40) NOT NULL,
 Quantity INT NOT NULL,
-PRIMARY KEY (OrderID, Email),
-FOREIGN KEY (ProductID) REFERENCES Products(ProductID));
+PRIMARY KEY (OrderID, ProductID),
+FOREIGN KEY (Email) REFERENCES Users(Email));
 
 CREATE VIEW AllProducts AS
 SELECT 

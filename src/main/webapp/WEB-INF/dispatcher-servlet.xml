@@ -12,8 +12,10 @@
 	<context:component-scan base-package="com.pawsco" />
 	<context:annotation-config />	
 	
+	
 	<beans:bean id="User" class="com.pawsco.business.User"/>
 	<beans:bean id="UserDB" class="com.pawsco.data.UserDB"/>
+    
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
