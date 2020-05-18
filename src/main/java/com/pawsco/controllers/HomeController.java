@@ -20,18 +20,18 @@ public class HomeController {
 	public String products() {
 		return "products";
 	}
-	@GetMapping("myAccount")
-	public String myAccount() {
-		return "myAccount";
-	}
+//	@GetMapping("myAccount")
+//	public String myAccount() {
+//		return "myAccount";
+//	}
 	@GetMapping("signin")
 	public String signIn() {
 		return "signin";
 	}
-	@GetMapping("register")
-	public String register() {
-		return "register";
-	}
+//	@GetMapping("register")
+//	public String register() {
+//		return "register";
+//	}
 	
 	@GetMapping("view_cookies")
 	public String view_cookies() {

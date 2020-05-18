@@ -1,9 +1,10 @@
+
 package com.pawsco.business;
 
 public class User {
 
 	private String email;
-//	private String password;
+	private String password;
 	private String firstName;
 	private String lastName;
 	
@@ -30,5 +31,12 @@ public class User {
 	public String toString() {
 		return "User [email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	
 }
