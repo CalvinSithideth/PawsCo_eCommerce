@@ -26,7 +26,7 @@ public class ProductJDBCTemplate implements ProductDAO {
 
 	@Override
 	public Product getProduct(int id) {
-		String sql = "SELECT * FROM Products WHERE ProductID = " + id;
+		String sql = "SELECT * FROM AllProducts WHERE ProductID = " + id;
 		Product product = jdbcTemplateObj.queryForObject(sql, new ProductMapper());
 		return product;
 	}

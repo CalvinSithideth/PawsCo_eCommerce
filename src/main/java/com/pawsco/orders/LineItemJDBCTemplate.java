@@ -15,11 +15,6 @@ public class LineItemJDBCTemplate implements LineItemDAO {
 
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObj;
-	private int orderID;
-	
-//	public LineItemJDBCTemplate(int orderID) {
-//		this.orderID = orderID;
-//	}
 	
 	@Autowired
 	@Override
@@ -29,10 +24,16 @@ public class LineItemJDBCTemplate implements LineItemDAO {
 	}
 
 	@Override
-	public List<LineItem> listLineItems() {
-		String sql = "SELECT * FROM OrderDetails WHERE OrderID = " + orderID;
+	public List<LineItem> listLineItems(int orderID) {
+		String sql = "SELECT * FROM OrderDetails WHERE OrderID = " + 1;
 		List<LineItem> lineItems = jdbcTemplateObj.query(sql, new LineItemMapper());
 		return lineItems;
+	}
+
+	@Override
+	public void createLineItem(int orderID, int productID, int quantity) {
+		String sql = "INSERT INTO OrderDetails (OrderID, ProductID, Quantity) VALUES (?, ?, ?)";
+		jdbcTemplateObj.update(sql, orderID, productID, quantity);
 	}
 
 }
