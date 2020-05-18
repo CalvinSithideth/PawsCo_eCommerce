@@ -11,13 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pawsco.business.User;
+import com.pawsco.db.users.UserJDBCTemplate;
+
 @Controller
 public class AccountController {
 	
 	@Autowired
 	public User user;
 	@Autowired
-	public UserDB userDB;
+	public UserJDBCTemplate userDB;
 	
 	
 	@GetMapping("/myAccount")
@@ -29,7 +32,7 @@ public class AccountController {
 	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView("register");
 		mav.addObject("user", new User());
-		mav.addObject("UserDB", new UserDB());
+		mav.addObject("UserDB", new UserJDBCTemplate());
 		return mav;
 	}
 	//@PostMapping("/myAccount.jsp")
