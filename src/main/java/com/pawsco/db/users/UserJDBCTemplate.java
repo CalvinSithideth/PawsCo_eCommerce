@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.pawsco.business.User;
 
+
 @Component
 public class UserJDBCTemplate implements UserDAO {
 
@@ -26,7 +27,7 @@ public class UserJDBCTemplate implements UserDAO {
 	@Override
 	public User getUser(String email) {
 		String sql = "SELECT * FROM Users WHERE Email = " + email;
-		User user = jdbcTemplateObj.queryForObject(sql, new UserMapper());
+		User user = (User) jdbcTemplateObj.queryForObject(sql, new UserMapper());
 		return user;
 	}
 

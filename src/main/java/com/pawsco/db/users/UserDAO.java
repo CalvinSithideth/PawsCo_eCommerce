@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import com.pawsco.business.User;
 
+
 public interface UserDAO {
 	
 	public void setDataSource(DataSource ds);
