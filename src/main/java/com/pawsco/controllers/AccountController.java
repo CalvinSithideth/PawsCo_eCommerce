@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pawsco.business.User;
-import com.pawsco.data.UserDB;
+import com.pawsco.db.users.UserJDBCTemplate;
 
 @Controller
 //@RequestMapping(value = "/register")
@@ -24,7 +24,7 @@ public class AccountController {
 	@Autowired
 	public User user;
 	@Autowired
-	public UserDB userDB;
+	public UserJDBCTemplate userDB;
 	
 	
 	@GetMapping("/myAccount")
@@ -35,13 +35,8 @@ public class AccountController {
 	@RequestMapping(value="/register", method = RequestMethod.GET)
 	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView("register");
-		//mav.addObject("user", new User());
-		//mav.addObject("UserDB", new UserDB());
-		User user = new User();
-		UserDB userdb = new UserDB();
-		mav.addObject(user);
-		mav.addObject(userdb);
-		
+		mav.addObject("user", new User());
+		mav.addObject("UserDB", new UserJDBCTemplate());
 		return mav;
 	}
 	//@PostMapping("/myAccount.jsp")
