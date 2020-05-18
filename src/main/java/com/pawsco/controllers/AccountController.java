@@ -48,6 +48,7 @@ public class AccountController {
 		return registerUser(request, response);
 	}
 	
+	
 	private String registerUser(HttpServletRequest request,
             HttpServletResponse response) throws SQLException {
 
