@@ -37,4 +37,12 @@ public class UserJDBCTemplate implements UserDAO {
 		return users;
 	}
 
+	@Override
+	public void registerUser(String email, String password, String firstName, String lastName) {
+		String sql = "INSERT INTO Users (Email, Password, FirstName, LastName) VALUES (?, ?, ?, ?)";
+		jdbcTemplateObj.update(sql, email, password, firstName, lastName);
+	}
+	
+
+
 }

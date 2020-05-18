@@ -10,5 +10,7 @@ public interface LineItemDAO {
 
 	public void setDataSource(DataSource ds);
 	
-	public List<LineItem> listLineItems();
+	public List<LineItem> listLineItems(int orderID);
+	
+	public void createLineItem(int OrderID, int ProductID, int quantity);
 }

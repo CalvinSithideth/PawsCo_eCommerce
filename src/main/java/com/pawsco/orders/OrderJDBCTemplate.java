@@ -1,5 +1,6 @@
 package com.pawsco.orders;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -25,16 +26,22 @@ public class OrderJDBCTemplate implements OrderDAO {
 
 	@Override
 	public Order getOrder(int id) {
-		String sql = "SELECT * FROM Orders WHERE OrderID = " + id;
+		String sql = "SELECT * FROM Orders WHERE OrderID = '" + id + "'";
 		Order order = jdbcTemplateObj.queryForObject(sql, new OrderMapper());
 		return order;
 	}
 
 	@Override
 	public List<Order> listOrders(String email) {
-		String sql = "SELECT * FROM Orders WHERE Email = " + email;
+		String sql = "SELECT * FROM Orders WHERE Email = '" + email + "'";
 		List<Order> orders = jdbcTemplateObj.query(sql, new OrderMapper());
 		return orders;
+	}
+
+	@Override
+	public void createOrder(String email, Date date) {
+		String sql = "INSERT INTO Orders (Email, Date) VALUES (?, ?)";
+		jdbcTemplateObj.update(sql, email, date);
 	}
 
 }
