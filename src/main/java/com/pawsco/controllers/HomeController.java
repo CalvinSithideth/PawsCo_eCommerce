@@ -24,10 +24,6 @@ public class HomeController {
 	public String view_cookies() {
 		return "view_cookies";
 	}
-	@GetMapping("myCart")
-	public String myCart() {
-		return "myCart";
-	}
 	@GetMapping("aboutus")
 	public String aboutus() {
 		return "aboutus";

@@ -58,6 +58,7 @@
 									</h4>
 									<form action="cart" method="post">
 										<input type="hidden" name="productID" value="${product.productID}">
+										<input type="hidden" name="action" value="add">
 										<label for="qty">Qty</label> <input type="number"
 											id="quantity" name="quantity" min="1" max="10" value="1">
 										<input type="submit"

@@ -1,5 +1,5 @@
 
-package com.pawsco.orders;
+package com.pawsco.db.orders;
 
 import java.sql.Date;
 import java.util.List;

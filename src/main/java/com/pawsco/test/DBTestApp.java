@@ -9,9 +9,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.pawsco.business.LineItem;
 import com.pawsco.business.Order;
 import com.pawsco.business.Product;
+import com.pawsco.db.orders.LineItemJDBCTemplate;
+import com.pawsco.db.orders.OrderJDBCTemplate;
 import com.pawsco.db.products.ProductJDBCTemplate;
-import com.pawsco.orders.LineItemJDBCTemplate;
-import com.pawsco.orders.OrderJDBCTemplate;
 
 public class DBTestApp {
 
