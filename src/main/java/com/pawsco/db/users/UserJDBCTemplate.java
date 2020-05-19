@@ -1,3 +1,4 @@
+
 package com.pawsco.db.users;
 
 import java.util.List;
@@ -9,7 +10,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.pawsco.business.User;
-
 
 @Component
 public class UserJDBCTemplate implements UserDAO {
@@ -27,7 +27,7 @@ public class UserJDBCTemplate implements UserDAO {
 	@Override
 	public User getUser(String email) {
 		String sql = "SELECT * FROM Users WHERE Email = " + email;
-		User user = (User) jdbcTemplateObj.queryForObject(sql, new UserMapper());
+		User user = jdbcTemplateObj.queryForObject(sql, new UserMapper());
 		return user;
 	}
 
@@ -38,4 +38,13 @@ public class UserJDBCTemplate implements UserDAO {
 		return users;
 	}
 
+	@Override
+	public void registerUser(String email, String password, String firstName, String lastName) {
+		String sql = "INSERT INTO Users (Email, Password, FirstName, LastName) VALUES (?, ?, ?, ?)";
+		jdbcTemplateObj.update(sql, email, password, firstName, lastName);
+	}
+	
+
+
 }
+

@@ -26,7 +26,7 @@ public class UserDB {
 		try {
 			ps = connection.prepareStatement(query);
 			ps.setString(1, user.getEmail());
-			ps.setString(2,  user.getPassword());
+			//ps.setString(2,  user.getPassword());
 			ps.setString(3, user.getFirstName());
 			ps.setString(4, user.getLastName());
 			
@@ -64,7 +64,7 @@ public class UserDB {
 		 	try {
 				ps = connection.prepareStatement(query);
 				ps.setString(1, user.getEmail());
-				ps.setString(2, user.getPassword());
+				//ps.setString(2, user.getPassword());
 				ps.setString(3, user.getFirstName());
 				ps.setString(4, user.getLastName());
 				

@@ -1,3 +1,4 @@
+
 package com.pawsco.controllers;
 
 import org.springframework.stereotype.Controller;
@@ -16,23 +17,10 @@ public class HomeController {
 	public String homeImage() {
 		return "home";
 	}
-	@GetMapping("products")
-	public String products() {
-		return "products";
-	}
-//	@GetMapping("myAccount")
-//	public String myAccount() {
-//		return "myAccount";
-//	}
 	@GetMapping("signin")
 	public String signIn() {
 		return "signin";
 	}
-//	@GetMapping("register")
-//	public String register() {
-//		return "register";
-//	}
-	
 	@GetMapping("view_cookies")
 	public String view_cookies() {
 		return "view_cookies";
@@ -84,3 +72,4 @@ public class HomeController {
 		return "faq";
 	}
 }
+
