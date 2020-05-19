@@ -33,16 +33,16 @@
 		<div class="row row-cols-1 row-cols-md-3"
 			style="width: 80%; text-align: left">
 			<c:set var="results" value="0"/>
-			<c:forEach var="product" items="${applicationScope.products}">
+			<c:forEach var="product" items="${products}">
 				<fmt:parseNumber var="min" value="${param.min}"/>
 				<fmt:parseNumber var="max" value="${param.max}"/>
 				<c:if test="${param.filter == null && param.min == null && param.max == null && param.search == null || param.search != null && fn:containsIgnoreCase(product.value.name, param.search) || product.value.category == param.filter || product.value.price >= min && product.value.price <= max}">
 					<c:set var="results" value="${results + 1}"/>
-					<div class="col mb-4 ${product.value.category}">
+					<div class="col mb-4 ${product.category}">
 						<div class="card h-100 item-card">
 							<!--Card image-->
 							<div class="view overlay">
-								<img class="card-img" src="Image/${product.value.imgFile}"
+								<img class="card-img" src="resources/images/${product.imageFileName}"
 									alt="Card image cap"
 									style="max-width: 300px; max-height: 250px; width: auto; height: auto; display: block; margin-left: auto; margin-right: auto; margin-top: 10px">
 							</div>
@@ -51,13 +51,13 @@
 								<div class="collapse-content">
 									<!--Title-->
 									<h4 class="card-title">
-										<c:out value="${product.value.name}" />
+										<c:out value="${product.name}" />
 									</h4>
 									<h4 class="price">
-										<c:out value="$${product.value.price}" />
+										<c:out value="$${product.price}" />
 									</h4>
 									<form action="cartAdd" method="post">
-										<input type="hidden" name="productid" value="${product.key}">
+										<input type="hidden" name="productid" value="${product.productID}">
 										<label for="qty">Qty</label> <input type="number"
 											id="quantity" name="quantity" min="1" max="10" value="1">
 										<input type="submit"
@@ -69,14 +69,14 @@
 									</form>
 									<!--Text-->
 									<p class="card-text collapse"
-										id="collapseContent${product.key}">
-										<c:out value="${product.value.description}" />
+										id="collapseContent${product.productID}">
+										<c:out value="${product.description}" />
 									</p>
 									<a
 										class="btn btn-primary red-text p-1 my-1 mr-0 mml-1 collapsed read-more"
-										data-toggle="collapse" href="#collapseContent${product.key}"
+										data-toggle="collapse" href="#collapseContent${product.productID}"
 										aria-expanded="false"
-										aria-controls="collapseContent${product.key}">Read More</a>
+										aria-controls="collapseContent${product.productID}">Read More</a>
 								</div>
 							</div>
 						</div>
