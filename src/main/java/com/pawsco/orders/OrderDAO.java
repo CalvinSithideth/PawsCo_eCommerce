@@ -1,5 +1,7 @@
+
 package com.pawsco.orders;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -13,4 +15,7 @@ public interface OrderDAO {
 	public Order getOrder(int id);
 	
 	public List<Order> listOrders(String email);
+	
+	public void createOrder(String email, Date date);
 }
+
