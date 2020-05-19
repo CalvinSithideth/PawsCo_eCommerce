@@ -14,9 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.pawsco.business.User;
 import com.pawsco.data.UserDB;
@@ -43,7 +40,8 @@ public class AccountController {
 	}
 	
 	@PostMapping(value="register")
-	public String handlePostRegistration(HttpServletRequest request, HttpServletResponse response, @Valid @ModelAttribute("register") User user) throws SQLException {
+	public String handlePostRegistration(HttpServletRequest request, 
+			HttpServletResponse response, @Valid @ModelAttribute("register") User user) throws SQLException {
 		
 		return registerUser(request, response);
 	}
@@ -86,7 +84,7 @@ public class AccountController {
             UserDB.insert(user);
             message = "user created";
             request.setAttribute("message", message);
-            url = "/home.jsp";
+            url = "/home";
         }
         return url;
    }
