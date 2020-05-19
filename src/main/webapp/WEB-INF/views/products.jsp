@@ -33,10 +33,10 @@
 		<div class="row row-cols-1 row-cols-md-3"
 			style="width: 80%; text-align: left">
 			<c:set var="results" value="0"/>
-			<c:forEach var="product" items="${products}">
+			<c:forEach var="product" items="${requestScope.products}">
 				<fmt:parseNumber var="min" value="${param.min}"/>
 				<fmt:parseNumber var="max" value="${param.max}"/>
-				<c:if test="${param.filter == null && param.min == null && param.max == null && param.search == null || param.search != null && fn:containsIgnoreCase(product.value.name, param.search) || product.value.category == param.filter || product.value.price >= min && product.value.price <= max}">
+				<c:if test="${param.filter == null && param.min == null && param.max == null && param.search == null || param.search != null && fn:containsIgnoreCase(product.name, param.search) || product.category == param.filter || product.price >= min && product.price <= max}">
 					<c:set var="results" value="${results + 1}"/>
 					<div class="col mb-4 ${product.category}">
 						<div class="card h-100 item-card">
