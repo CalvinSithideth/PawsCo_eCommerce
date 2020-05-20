@@ -94,8 +94,7 @@
 	</c:if>
 	<script src="resources/js/home.js"></script>
 	<script src="resources/js/product.js"></script>
-
-
+	
 <jsp:include page="footer.jsp"></jsp:include>
 
 </body>
