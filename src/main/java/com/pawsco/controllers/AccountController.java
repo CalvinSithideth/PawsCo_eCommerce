@@ -160,6 +160,10 @@ public class AccountController extends HttpServlet{
 		if (userDB.userExists(email)) {
 			message = "This email address already exists. <br>" + "Please enter another email address.";
 			request.setAttribute("message", message);
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			
 			return "register";
 
 		} else {
