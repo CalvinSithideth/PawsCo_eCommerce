@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,12 +24,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.pawsco.business.User;
 import com.pawsco.db.users.UserJDBCTemplate;
-import com.pawsco.db.users.UserMapper;
 
 @Controller
 //@RequestMapping(value = "/register")
-public class AccountController {
+public class AccountController extends HttpServlet{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L
+			;
 	@Autowired
 	public User user;
 	@Autowired
@@ -50,23 +55,29 @@ public class AccountController {
 		}
 
 		// perform action and set URL to appropriate page
-		String url = "/home.jsp";
+		String url = "/home";
 		if (action.equals("home")) {
-			url = "/home.jsp";
-		} else if (action.equals("register")) {
+			url = "/home";
+		} else if (action.equals("registerUser")) {
 			try {
 				url = registerUser(request, response);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if (action.equals("viewCookies")) {
+		}else if(action.equals("logout")){
+			url = logoutUser(request,response);
+		}
+		else if (action.equals("viewCookies")) {
+		
 			url = "/view_cookies.jsp";
 		} else if (action.equals("deleteCookies")) {
 			url = deleteCookies(request, response);
 		}
 		// forward to the view
-		response.sendRedirect("home.jsp");
+		getServletContext()
+        .getRequestDispatcher(url)
+        .forward(request, response);	
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -76,7 +87,7 @@ public class AccountController {
 		String action = request.getParameter("action");
 
 		// perform action and set URL to appropriate page
-		String url = "/home.jsp";
+		String url = "/home";
 		if (action.equals("registerUser")) {
 			try {
 				url = registerUser(request, response);
@@ -86,10 +97,34 @@ public class AccountController {
 			}
 		}
 		// forward to the view
-		response.sendRedirect("home.jsp");
+		response.sendRedirect("home");
+	}
+	
+	public String handleGetLogin(Model model) {
+		model.addAttribute("signin", new User());
+		return "signin";
 	}
 
-	@GetMapping(value = "/register")
+	@PostMapping(value = "login")
+	public String handlePostLogin(HttpServletRequest request, HttpServletResponse response,
+			@Valid @ModelAttribute("login") User user) throws SQLException {
+
+		return loginUser(request, response);
+	}
+	
+	
+	public String handleGetLogout(Model model) {
+		model.addAttribute("loggedOut", new User());
+		return "loggedOut";
+	}
+
+	@PostMapping(value = "logout")
+	public String handlePostLogout(HttpServletRequest request, HttpServletResponse response,
+			@Valid @ModelAttribute("logout") User user) throws SQLException, ServletException, IOException {
+
+		return logoutUser(request, response);
+	}
+
 	public String handleGetRegistration(Model model) {
 		model.addAttribute("register", new User());
 		return "register";
@@ -100,7 +135,6 @@ public class AccountController {
 			@Valid @ModelAttribute("register") User user) throws SQLException {
 
 		return registerUser(request, response);
-
 	}
 //	@RequestMapping(value="/register", method = RequestMethod.GET)
 //	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
@@ -113,8 +147,7 @@ public class AccountController {
 
 	private String registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
-		UserMapper map = new UserMapper();
-		UserJDBCTemplate userjdbc = context.getBean(UserJDBCTemplate.class);
+		userDB = context.getBean(UserJDBCTemplate.class);
 
 		String url = null;
 		String message = null;
@@ -124,18 +157,18 @@ public class AccountController {
 		String firstname = request.getParameter("firstName");
 		String lastname = request.getParameter("lastName");
 
-		if (userjdbc.userExists(email)) {
+		if (userDB.userExists(email)) {
 			message = "This email address already exists. <br>" + "Please enter another email address.";
 			request.setAttribute("message", message);
 			return "register";
 
 		} else {
-			User user = new User();
+			
 			user.setEmail(email);
 			user.setFirstName(firstname);
 			user.setLastName(lastname);
 
-			userjdbc.registerUser(email, password, firstname, lastname);
+			userDB.registerUser(email, password, firstname, lastname);
 			// store the User object as a session attribute
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
@@ -150,21 +183,87 @@ public class AccountController {
 		}
 
 	}
+	
+	private String loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException{
 
-	private String deleteCookies(HttpServletRequest request, HttpServletResponse response) {
+		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
+		
+		userDB = context.getBean(UserJDBCTemplate.class);
+		
+		String url = null;
+		// get the user data
+		String email = request.getParameter("email");
+		String message;
+		// check that email address doesn't already exist
+			if (userDB.userExists(email)) {
+				// store the data in a User object
+				user = userDB.getUser(email);
+				user.setEmail(email);
+				// store the User object as a session attribute
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+				
+				if (request.getParameter("remember") != null) {
+					String remember = request.getParameter("remember");
+					System.out.println("remember : " + remember);
+					// add a cookie that stores the user's email to browser
+					Cookie c = new Cookie("email", email);
+					c.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
+					c.setPath("/");
+					System.out.println(c.getValue());
+					// allow entire app to access it
+					response.addCookie(c);
+				}
 
-		HttpSession session = request.getSession();
-		Cookie[] cookies = request.getCookies();
-		User user = (User) session.getAttribute("user");
-		for (Cookie cookie : cookies) {
-			cookie.setMaxAge(0); // delete the cookie
-			cookie.setPath("/");
-			response.addCookie(cookie);
+				message = "logging in...";
+				request.setAttribute("message", message);
+				url = "home";
+			} else {
 
-		}
-
-		String url = "/delete_cookies.jsp";
+				message = "Email does not exist";
+				request.setAttribute("message", message);
+				url = "register";
+			}
+		
 		return url;
 	}
 
+	 @RequestMapping(value="/logout", method=RequestMethod.GET)  
+	private String logoutUser(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
+
+		userDB = context.getBean(UserJDBCTemplate.class);
+		HttpSession session = request.getSession();
+		session.removeAttribute("user");
+
+		Cookie[] cookies = request.getCookies();
+		for (Cookie c : cookies) {
+			if (c.getName().equals("email")) {
+				System.out.println(c.getValue());
+				c.setMaxAge(0);
+				response.addCookie(c);
+			}
+		}
+
+		// request.getRequestDispatcher("loggedOut.jsp").forward(request, response);
+		return "loggedOut";
+	}
+
+	private String deleteCookies(HttpServletRequest request, HttpServletResponse response) {
+		
+	
+		Cookie[] cookies = request.getCookies();
+		if(cookies != null) {
+		for (Cookie cookie : cookies) {
+			cookie.setValue("");
+			cookie.setMaxAge(0); // delete the cookie
+			cookie.setPath("/");
+			response.addCookie(cookie);
+		}
+	}
+		String url = "/delete_cookies.jsp";
+		return url;
+	}
 }

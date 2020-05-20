@@ -26,7 +26,7 @@
 					<label for="email">Email Address</label>
 					<input type="email" name="email" value="${user.email }" required>
 					<label for="password">Password</label>
-					<input type="password" name="password" value="${user.password }" required>
+					<input type="password" name="password" value="" required>
 					<label for="firstName">First Name</label>
 					<input type="text" name="firstName" value="${user.firstName }" required>
 					<label for="lastName">Last Name</label>

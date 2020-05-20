@@ -20,6 +20,14 @@ public class HomeController {
 	public String signIn() {
 		return "signin";
 	}
+	@GetMapping("loggedOut")
+	public String loggout() {
+		return "loggedOut";
+	}
+	@GetMapping("register")
+	public String register() {
+		return "register";
+	}
 	@GetMapping("view_cookies")
 	public String view_cookies() {
 		return "view_cookies";
