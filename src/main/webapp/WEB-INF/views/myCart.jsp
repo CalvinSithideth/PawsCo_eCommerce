@@ -21,8 +21,10 @@
 <body>
 
 	<jsp:include page="header.jsp"></jsp:include>
-	<h3>Shopping Cart</h3>
-
+	<div style="width: 90%; text-align: center">
+		<h3>Shopping Cart</h3>
+		<span style="color: red"><c:out value="${checkoutErrorMessage}"/></span>
+	</div>
 	<table>
 		<tr>
 			<th>Product</th>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,17 +22,31 @@ import com.pawsco.checkout.CheckoutService;
 public class CheckoutController {
 
 	@GetMapping
-	public String checkout() {
-		return "checkout";
+	public ModelAndView checkout(@SessionAttribute("cart") List<LineItem> cart, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		double subtotal = 0;
+		for (LineItem item : cart) {
+			subtotal += item.getProduct().getPrice() * item.getQuantity();
+		}
+		mav.addObject("subtotal", subtotal);
+		mav.setViewName("checkout");
+		return mav;
 	}
 	
 	@PostMapping
 	public ModelAndView completeCheckout(@SessionAttribute("user") User user, @SessionAttribute("cart") List<LineItem> cart, HttpSession session) {
-		int orderID = CheckoutService.saveOrder(user, cart);
-		CartService.emptyCart(session);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("orderConfirmation");
-		mav.addObject("orderID", orderID);
-		return mav;
+		if (CheckoutService.checkStocks(cart)) {
+			int orderID = CheckoutService.saveOrder(user, cart);
+			CartService.emptyCart(session);
+			mav.setViewName("orderConfirmation");
+			mav.addObject("orderID", orderID);
+			return mav;
+		} else {
+			mav.setViewName("myCart");
+			mav.addObject("checkoutErrorMessage", "We're sorry, but our supplies are insufficient to fulfill one of more items in your order.");
+			return mav;
+		}
+		
 	}
 }
