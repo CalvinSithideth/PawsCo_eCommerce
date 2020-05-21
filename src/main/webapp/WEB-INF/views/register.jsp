@@ -20,7 +20,7 @@
 	<div style="text-align: center">
 		<div style="width: 80%; display: inline-block">
 			<div class="login-box">
-				<h5>Sign into your Pawsco.com account</h5>
+				<h5>Create a new Pawsco.com account</h5>
 				<form action="register" method="post">
 				<input type="hidden" name="action" value="registerUser">
 					<label for="email">Email Address</label>
