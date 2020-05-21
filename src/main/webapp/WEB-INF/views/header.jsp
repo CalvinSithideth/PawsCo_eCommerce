@@ -7,7 +7,8 @@
 				<div style="display: table-cell">
 					<div style="display: inline">
 						<a href="home" style="display: inline-block">
-							<img src="<c:url value ="/resources/images/logo3.png"/>">
+							<img src="<c:url value ="/resources/images/pawsco_logo.png"/>"
+							style="width: 200px; height: auto">
 						</a>
 						<div class="dropdown" style="display: inline-block">
 							<a class="navbtn dropbtn" href="products">Products</a>

@@ -61,21 +61,22 @@
 				</td>
 			</tr>
 		</c:forEach>
-		<td>
-			<form action="products" method="get">
-				<input type="hidden" name="action" value="shop"> <input
-					type="submit" value="Continue Shopping">
-			</form>
-		</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>
-		<form action="" method="post">
-			<input type="hidden" name="action" value="checkout"> <input
-				type="submit" value="Checkout">
-		</form>
-		</td>
+		<tr>
+			<td>
+				<form action="products" method="get">
+					<input type="hidden" name="action" value="shop">
+					<input type="submit" value="Continue Shopping">
+				</form>
+			</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>
+				<form action="checkout" method="get">
+					<input type="submit" value="Checkout">
+				</form>
+			</td>
+		</tr>
 	</table>
 	<br><br>
 
