@@ -47,6 +47,9 @@
 					<a class="list-group-item with-badge" href="#"></a> <a
 						class="list-group-item with-badge active" href="#"
 						onclick="showHideWishList()"><i class="fa fa-heart"></i>Wishlist</a>
+					<a class="list-group-item with-badge" id="getOrder" href="#"></a> <a
+						class="list-group-item with-badge active" href="#"
+						id="getOrder"><i class="fa fa-heart"></i>Orders</a>
 
 					<div class="row">
 						<div class="col-md-12">
@@ -54,6 +57,11 @@
 								<div class="panel-body">
 									<div class="table-responsive" id="wishlistDiv"></div>
 								</div>
+							<div class="panel panel-info panel-shadow">
+								<div class="panel-body">
+									<div class="table-responsive" id="getOrder">${order.getOrderId }</div>
+								</div>
+							</div>
 							</div>
 						</div>
 					</div>
