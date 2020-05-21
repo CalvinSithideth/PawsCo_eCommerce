@@ -67,6 +67,7 @@ SELECT
     c.Name AS 'Category', 
     p.Description, 
     p.Price, 
+    p.Stock,
     p.ImageFilename
 FROM Products p 
 JOIN Categories c ON p.CategoryID = c.CategoryID;
