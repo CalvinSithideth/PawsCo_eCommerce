@@ -55,6 +55,13 @@ public class CartService {
 		cart.get(index).setQuantity(quantity);
 		session.setAttribute("cart", cart);
 	}
+	
+	public static void emptyCart(HttpSession session) {
+		@SuppressWarnings("unchecked")
+		List<LineItem> cart = (List<LineItem>)session.getAttribute("cart");
+		cart.clear();
+		session.setAttribute("cart", cart);
+	}
 
 	// Private method to find index of item in cart, or return -1 if not present
 	private static int findInCart(int productID, List<LineItem> cart) {
