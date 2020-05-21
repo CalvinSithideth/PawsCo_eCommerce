@@ -1,4 +1,3 @@
-
 package com.pawsco.db.users;
 
 import java.sql.Connection;
