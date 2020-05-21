@@ -1,13 +1,17 @@
 
-package com.pawsco.orders;
+package com.pawsco.db.orders;
 
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import com.pawsco.business.Order;
@@ -40,9 +44,18 @@ public class OrderJDBCTemplate implements OrderDAO {
 	}
 
 	@Override
-	public void createOrder(String email, Date date) {
+	public int createOrder(String email, Date date) {
+		KeyHolder keyHolder = new GeneratedKeyHolder();
 		String sql = "INSERT INTO Orders (Email, Date) VALUES (?, ?)";
-		jdbcTemplateObj.update(sql, email, date);
+		
+		jdbcTemplateObj.update(con -> {
+			PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, email);
+			ps.setDate(2, date);
+			return ps;
+		}, keyHolder);
+		
+		return keyHolder.getKey().intValue();
 	}
 
 }

@@ -1,5 +1,5 @@
 
-package com.pawsco.orders;
+package com.pawsco.db.orders;
 
 import java.sql.Date;
 import java.util.List;
@@ -16,6 +16,6 @@ public interface OrderDAO {
 	
 	public List<Order> listOrders(String email);
 	
-	public void createOrder(String email, Date date);
+	public int createOrder(String email, Date date);
 }
 

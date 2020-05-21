@@ -7,7 +7,8 @@
 				<div style="display: table-cell">
 					<div style="display: inline">
 						<a href="home" style="display: inline-block">
-							<img src="<c:url value ="/resources/images/logo3.png"/>">
+							<img src="<c:url value ="/resources/images/pawsco_logo.png"/>"
+							style="width: 200px; height: auto">
 						</a>
 						<div class="dropdown" style="display: inline-block">
 							<a class="navbtn dropbtn" href="products">Products</a>
@@ -41,7 +42,7 @@
 					<a class="navbtn" href="${btnURL}">
 						<i class="fas fa-user"></i> ${btnLabel}
 					</a>
-					<a class="navbtn" href="myCart">
+					<a class="navbtn" href="cart">
 						<i class="fas fa-shopping-cart"></i> Cart
 						<c:if test="${sessionScope.cart != null}">
 						</c:if>
