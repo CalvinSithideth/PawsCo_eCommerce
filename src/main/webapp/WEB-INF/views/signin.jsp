@@ -1,4 +1,5 @@
 <%@ taglib prefix="mma" uri="/WEB-INF/pawsco.tld" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -19,6 +20,10 @@
 <jsp:include page="header.jsp"></jsp:include>
 	<div style="text-align: center">
 		<div style="width: 80%; display: inline-block">
+		<br>
+			<p style="color: red">
+				<c:out value="${errorMessage}"/>
+			</p>
 			<div class="login-box">
 				<h5>Sign into your Pawsco.com account</h5>
 				<form action="login" method="post">
@@ -40,6 +45,7 @@
 			</div>
 		</div>
 	</div>
+	<br>
 	
 	
 

@@ -24,12 +24,18 @@ public class CheckoutController {
 	@GetMapping
 	public ModelAndView checkout(@SessionAttribute("cart") List<LineItem> cart, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		double subtotal = 0;
-		for (LineItem item : cart) {
-			subtotal += item.getProduct().getPrice() * item.getQuantity();
+		
+		if (session.getAttribute("user") == null) {
+			mav.addObject("errorMessage", "You must be signed in to access this page");
+			mav.setViewName("signin");
+		} else {
+			double subtotal = 0;
+			for (LineItem item : cart) {
+				subtotal += item.getProduct().getPrice() * item.getQuantity();
+			}
+			mav.addObject("subtotal", subtotal);
+			mav.setViewName("checkout");
 		}
-		mav.addObject("subtotal", subtotal);
-		mav.setViewName("checkout");
 		return mav;
 	}
 	
