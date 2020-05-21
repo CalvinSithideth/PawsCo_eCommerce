@@ -8,9 +8,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.pawsco.business.LineItem;
+import com.pawsco.business.Product;
 import com.pawsco.business.User;
 import com.pawsco.db.orders.LineItemJDBCTemplate;
 import com.pawsco.db.orders.OrderJDBCTemplate;
+import com.pawsco.models.ProductModel;
 
 public class CheckoutService {
 	
@@ -27,5 +29,24 @@ public class CheckoutService {
 		
 		((AnnotationConfigApplicationContext)ctx).close();
 		return orderID;
+	}
+	
+	public static boolean checkStocks(List<LineItem> cart) {
+		ProductModel pm = new ProductModel();
+		List<Product> currentInventory = pm.allProducts();
+		
+		// This is a little ugly, but it only queries the database once
+		for (LineItem item : cart) {
+			for (Product p : currentInventory) {
+				if (item.getProduct().getProductID() == p.getProductID()) {
+					if (item.getQuantity() > p.getStock()) {
+						return false;
+					}
+					break;
+				}
+			}
+		}
+		
+		return true;
 	}
 }

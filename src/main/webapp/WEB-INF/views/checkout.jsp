@@ -1,4 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
 <!-- Custom styles for this template -->
 <!-- <link href="./css/form-validation.css" rel="stylesheet"> -->
 <link href="resources/css/header.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <title>Checkout</title>
 </head>
 <body class="bg-light">
@@ -34,9 +36,44 @@
 							<div>
 								<h6 class="my-0">${item.product.name}</h6>
 								<small class="text-muted">Qty: ${item.quantity}</small>
-							</div> <span class="text-muted">$${(item.product.price * item.quantity)}</span>
+							</div>
+							<span class="text-muted">
+								$<fmt:formatNumber type="number" 
+									maxFractionDigits="2" 
+									minFractionDigits="2" 
+									value="${(item.product.price * item.quantity)}"/>
+							</span>
 						</li>
 					</c:forEach>
+					</ul>
+					<ul class="list-group mb-3">
+					<li class="list-group-item d-flex justify-content-between">
+		            	<span>Subtotal</span>
+		            	<span id="subtotal">
+		            		$<fmt:formatNumber type="number" 
+									maxFractionDigits="2" 
+									minFractionDigits="2" 
+									value="${(subtotal)}"/>
+		            	</span>
+		            </li>
+		            <li class="list-group-item d-flex justify-content-between">
+		            	<span>Tax</span>
+		            	<span id="tax">
+							$<fmt:formatNumber type="number" 
+									maxFractionDigits="2" 
+									minFractionDigits="2" 
+									value="${(subtotal * 0.065)}"/>
+						</span>
+		            </li>
+		            <li class="list-group-item d-flex justify-content-between">
+		            	<strong>Total (USD)</strong>
+		            	<strong id="total">
+		            		$<fmt:formatNumber type="number" 
+									maxFractionDigits="2" 
+									minFractionDigits="2" 
+									value="${(subtotal + (subtotal * 0.065))}"/>
+		            	</strong>
+		            </li>
 				</ul>
 
 				<form class="card p-2">

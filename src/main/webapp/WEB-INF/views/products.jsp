@@ -61,9 +61,21 @@
 										<input type="hidden" name="action" value="add">
 										<label for="qty">Qty</label> <input type="number"
 											id="quantity" name="quantity" min="1" max="10" value="1">
+										<c:choose>
+											<c:when test="${product.stock > 0}">
+												<input type="submit"
+													class="cartBtn btn btn-outline-primary waves-effect"
+													value="Add To Cart">
+											</c:when>
+											<c:otherwise>
+												<input type="submit"
+													class="btn btn-outline-primary waves-effect"
+													value="Out of stock"
+													style="background-color: #DDDDDD; color: red; border-color: red"
+													disabled>
+											</c:otherwise>
+										</c:choose>
 										<input type="submit"
-											class="cartBtn btn btn-outline-primary waves-effect"
-											value="Add To Cart"><input type="submit"
 											id="wishlist"
 											class="wishlistBtn btn btn-outline-primary waves-effect"
 											value="+Wish List">
