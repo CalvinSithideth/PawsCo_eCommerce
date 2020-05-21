@@ -1,11 +1,14 @@
 package com.pawsco.db.wishlist;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.pawsco.business.Wishlist;
+import com.pawsco.orders.LineItemMapper;
 
 public class WishlistJDBCTemplate implements WishListMappingDAO{
 	
@@ -22,7 +25,8 @@ public class WishlistJDBCTemplate implements WishListMappingDAO{
 	@Override
 	public Wishlist getWishlist(String email) {
 		String sql = "SELECT * FROM WishlistMappings WHERE email = " + email;
-		Wishlist wishlist = jdbcTemplateObj.
+		/* Wishlist wishlist = jdbcTemplateObj.query(sql, new WishlistMapper()); */
+		return null ;
 	}
 
 	@Override

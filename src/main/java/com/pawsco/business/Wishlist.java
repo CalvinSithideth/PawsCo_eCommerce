@@ -8,7 +8,6 @@ public class Wishlist {
 	private List<Product> wishlistProducts;
 	
 	public void addToWishlist(Product product) {
-		wishlistProducts.
 		wishlistProducts.add(product);
 	}
 	

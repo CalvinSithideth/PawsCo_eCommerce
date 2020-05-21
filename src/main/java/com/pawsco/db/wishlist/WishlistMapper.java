@@ -13,7 +13,7 @@ public class WishlistMapper implements RowMapper<Wishlist>{
 
 	public Wishlist mapRow(ResultSet rs, int rowNum) throws SQLException{
 		Wishlist wishlistItem = new Wishlist();
-		wishlistItem.
+		return wishlistItem;
 		
 		
 	}
