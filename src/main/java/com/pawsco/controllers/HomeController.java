@@ -74,9 +74,6 @@ public class HomeController {
 	public String faq() {
 		return "faq";
 	}
-//	@GetMapping("wishlist")
-//	public String wishList() {
-//		return "wishlist";
-//	}
+
 }
 
