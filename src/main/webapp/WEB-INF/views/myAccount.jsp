@@ -48,7 +48,7 @@
 					<a class="list-group-item with-badge" href="#"></a> <a
 						class="list-group-item with-badge active" href="#"
 						onclick="showHideWishList()"><i class="fa fa-heart"></i>Wishlist</a>
-					<a class="list-group-item with-badge" href="orderHistory" href="#">My Orders</a>
+					<a class="list-group-item with-badge" href="orderHistory" href="#">Order</a>
 					
 					<div class="row">
 						<div class="col-md-12">
