@@ -1,6 +1,13 @@
 package com.pawsco.business;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,6 +16,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class OrderTest {
+	Order order;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -20,6 +28,7 @@ class OrderTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		order = new Order();
 	}
 
 	@AfterEach
@@ -28,107 +37,88 @@ class OrderTest {
 
 	@Test
 	void testGetOrderID() {
-		fail("Not yet implemented");
+		int expected = 1;
+		order.setOrderID(expected);
+		int actual = order.getOrderID();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetOrderID() {
-		fail("Not yet implemented");
+		int expected = 1;
+		order.setOrderID(expected);
+		int actual = order.getOrderID();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetEmail() {
-		fail("Not yet implemented");
+		String expected = "email@email.com";
+		order.setEmail(expected);
+		String actual = order.getEmail();
+		assertTrue(actual.equals(expected));
+	}
+
+	@Test
+	void testGetEmailNegative() {
+		String expected = "string";
+		order.setEmail(expected);
+		String actual = order.getEmail();
+		assertFalse(expected != actual);
 	}
 
 	@Test
 	void testSetEmail() {
-		fail("Not yet implemented");
+		String expected = "email@email.com";
+		order.setEmail(expected);
+		String actual = order.getEmail();
+		assertTrue(expected.equals(actual));
 	}
 
 	@Test
 	void testGetDate() {
-		fail("Not yet implemented");
+		Date date = Date.valueOf(LocalDate.now());
+		Date expected = date;
+		order.setDate(date);
+		Date actual = order.getDate();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetDate() {
-		fail("Not yet implemented");
+		Date date = Date.valueOf(LocalDate.now());
+		Date expected = date;
+		order.setDate(date);
+		Date actual = order.getDate();
+		assertEquals(expected, actual);
 	}
 
 	@Test
-	void testGetLineItems() {
-		fail("Not yet implemented");
+	void testGetLineItems(Product product) {
+		List<LineItem> expected = new ArrayList<LineItem>();
+		LineItem lineItem = new LineItem(new Product(), 3);
+		expected.add(lineItem);
+
+		List<LineItem> actual = new ArrayList<LineItem>();
+		LineItem lineItem2 = new LineItem(new Product(), 3);
+		actual.add(lineItem2);
+		order.setLineItems(actual);
+		actual = order.getLineItems();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetLineItems() {
-		fail("Not yet implemented");
-	}
+		List<LineItem> expected = new ArrayList<LineItem>();
+		LineItem lineItem = new LineItem(new Product(), 3);
+		expected.add(lineItem);
 
-	@Test
-	void testToString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetClass() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testHashCode() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testEquals() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testClone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testToString1() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testNotify() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testNotifyAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWaitLong() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWaitLongInt() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWait() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testFinalize() {
-		fail("Not yet implemented");
+		List<LineItem> actual = new ArrayList<LineItem>();
+		LineItem lineItem2 = new LineItem(new Product(), 3);
+		actual.add(lineItem2);
+		order.setLineItems(actual);
+		actual = order.getLineItems();
+		assertEquals(expected, actual);
 	}
 
 }
