@@ -1,6 +1,6 @@
 package com.pawsco.business;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class UserTest {
+	User user;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -20,6 +21,7 @@ class UserTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		user = new User();
 	}
 
 	@AfterEach
@@ -28,97 +30,58 @@ class UserTest {
 
 	@Test
 	void testGetEmail() {
-		fail("Not yet implemented"); // TODO
+		String expected = ("test@email.com");
+		user.setEmail(expected);
+		String actual = user.getEmail();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetEmail() {
-		fail("Not yet implemented"); // TODO
+		String expected = ("test@email.com");
+		user.setEmail(expected);
+		String actual = user.getEmail();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetFirstName() {
-		fail("Not yet implemented"); // TODO
+		String expected = ("testFName");
+		user.setFirstName(expected);
+		String actual = user.getFirstName();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetFirstName() {
-		fail("Not yet implemented"); // TODO
+		String expected = ("testFName");
+		user.setFirstName(expected);
+		String actual = user.getFirstName();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetLastName() {
-		fail("Not yet implemented"); // TODO
+		String expected = ("testLName");
+		user.setLastName(expected);
+		String actual = user.getLastName();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetLastName() {
-		fail("Not yet implemented"); // TODO
+		String expected = ("testLName");
+		user.setLastName(expected);
+		String actual = user.getLastName();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testToString() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testObject() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testGetClass() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testHashCode() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testEquals() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testClone() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testToString1() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testNotify() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testNotifyAll() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testWaitLong() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testWaitLongInt() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testWait() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	void testFinalize() {
-		fail("Not yet implemented"); // TODO
+		user.toString();
+		String expected = user.toString();
+		String actual = user.toString();
+		assertEquals(expected, actual);
 	}
 
 }

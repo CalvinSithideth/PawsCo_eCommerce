@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class LineItemTest {
+	LineItem lineItem;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -20,6 +21,7 @@ class LineItemTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		lineItem = new LineItem();
 	}
 
 	@AfterEach
@@ -28,87 +30,41 @@ class LineItemTest {
 
 	@Test
 	void testGetProduct() {
-		fail("Not yet implemented");
+		Product expected = new Product();
+		lineItem.setProduct(expected);
+		Product actual = lineItem.getProduct();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetProduct() {
-		fail("Not yet implemented");
+		Product expected = new Product();
+		lineItem.setProduct(expected);
+		Product actual = lineItem.getProduct();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetQuantity() {
-		fail("Not yet implemented");
+		int expected = 2;
+		lineItem.setQuantity(expected);
+		int actual = lineItem.getQuantity();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetQuantity() {
-		fail("Not yet implemented");
+		int expected = 2;
+		lineItem.setQuantity(expected);
+		int actual = lineItem.getQuantity();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testToString() {
-		fail("Not yet implemented");
+		String expected = new String();
+		lineItem.toString();
+		String actual = lineItem.toString();
+		assertEquals(expected, actual);
 	}
-
-	@Test
-	void testObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetClass() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testHashCode() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testEquals() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testClone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testToString1() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testNotify() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testNotifyAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWaitLong() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWaitLongInt() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWait() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testFinalize() {
-		fail("Not yet implemented");
-	}
-
 }
