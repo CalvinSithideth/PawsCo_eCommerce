@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<meta http-equiv="Refresh" content="5;url=home.jsp">
+<meta http-equiv="Refresh" content="5;url=home">
 <title>Logging Out</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link href="resources/css/header.css" rel="stylesheet" type="text/css">
