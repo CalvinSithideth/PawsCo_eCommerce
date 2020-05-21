@@ -21,69 +21,83 @@
 <body>
 
 	<jsp:include page="header.jsp"></jsp:include>
-	<div style="width: 90%; text-align: center">
-		<h3>Shopping Cart</h3>
-		<span style="color: red"><c:out value="${checkoutErrorMessage}"/></span>
-	</div>
-	<table>
-		<tr>
-			<th>Product</th>
-			<th>Price</th>
-			<th>Quantity</th>
-			<th>Amount</th>
-			<th>Remove Item</th>
-		</tr>
-		<c:forEach var="item" items="${sessionScope.cart}">
-			<tr>
-				<td><img style="width: 30%" class="card-img"
-					src="<c:url value='/resources/images/${item.product.imageFileName}'/>"></td>
-				<fmt:setLocale value="en_US" />
-				<td><fmt:formatNumber value="${item.product.price}"
-						type="currency" /></td>
-				<td id="quantityTd">
-					<form action="" method="post">
-						<input type="hidden" name="productID"
-							value="<c:out value='${item.product.productID}'/>">
-						<input type=text name="quantity" 
-							value="<c:out value='${item.quantity}'/>" id="quantity">
-						<input type="hidden" name="action" value="edit">	
-						<input type="submit" value="Update">
-					</form>
-				</td>
-				<fmt:setLocale value="en_US" />
-				<td><fmt:formatNumber value="${item.product.price * item.quantity}"
-						type="currency" /></td>
-				<td>
-					<form action="cart" method="post">
-						<input type="hidden" name="productID"
-							value="<c:out value='${item.product.productID}'/>">
-						<input type="hidden" name="action" value="remove">
-						<input type="submit" value="Remove Item">
-					</form>
-				</td>
-			</tr>
-		</c:forEach>
-		<tr>
-			<td>
-				<form action="products" method="get">
-					<input type="hidden" name="action" value="shop">
-					<input type="submit" value="Continue Shopping">
-				</form>
-			</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>
-				<form action="checkout" method="get">
-					<input type="submit" value="Checkout">
-				</form>
-			</td>
-		</tr>
-	</table>
-	<br><br>
+
+	<c:choose>
+		<c:when test="${cart == null || cart.size() == 0}">
+			<br>
+			<div style="width: 90%; text-align: center">
+				<h3>Your cart is empty</h3>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div style="width: 90%; text-align: center">
+				<h3>Shopping Cart</h3>
+				<span style="color: red"><c:out
+						value="${checkoutErrorMessage}" /></span>
+			</div>
+			<table>
+				<tr>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Amount</th>
+					<th>Remove Item</th>
+				</tr>
+				<c:forEach var="item" items="${sessionScope.cart}">
+					<tr>
+						<td><img style="width: 30%" class="card-img"
+							src="<c:url value='/resources/images/${item.product.imageFileName}'/>"></td>
+						<fmt:setLocale value="en_US" />
+						<td><fmt:formatNumber value="${item.product.price}"
+								type="currency" /></td>
+						<td id="quantityTd">
+							<form action="" method="post">
+								<input type="hidden" name="productID"
+									value="<c:out value='${item.product.productID}'/>"> <input
+									type=text name="quantity"
+									value="<c:out value='${item.quantity}'/>" id="quantity">
+								<input type="hidden" name="action" value="edit"> <input
+									type="submit" value="Update">
+							</form>
+						</td>
+						<fmt:setLocale value="en_US" />
+						<td><fmt:formatNumber
+								value="${item.product.price * item.quantity}" type="currency" /></td>
+						<td>
+							<form action="cart" method="post">
+								<input type="hidden" name="productID"
+									value="<c:out value='${item.product.productID}'/>"> <input
+									type="hidden" name="action" value="remove"> <input
+									type="submit" value="Remove Item">
+							</form>
+						</td>
+					</tr>
+				</c:forEach>
+				<tr>
+					<td>
+						<form action="products" method="get">
+							<input type="hidden" name="action" value="shop"> <input
+								type="submit" value="Continue Shopping">
+						</form>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+						<form action="checkout" method="get">
+							<input type="submit" value="Checkout">
+						</form>
+					</td>
+				</tr>
+			</table>
+		</c:otherwise>
+	</c:choose>
+
+	<br>
+	<br>
 
 
-<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
 
 	<script src="resources/js/home.js"></script>
 </body>
