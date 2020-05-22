@@ -1,6 +1,6 @@
 package com.pawsco.business;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ProductTest {
+	Product product;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -20,6 +21,7 @@ class ProductTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		product = new Product();
 	}
 
 	@AfterEach
@@ -28,127 +30,98 @@ class ProductTest {
 
 	@Test
 	void testGetProductID() {
-		fail("Not yet implemented");
+		int expected = 1;
+		product.setProductID(expected);
+		int actual = product.getProductID();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetProductID() {
-		fail("Not yet implemented");
+		int expected = 1;
+		product.setProductID(expected);
+		int actual = product.getProductID();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetCategory() {
-		fail("Not yet implemented");
+		String expected = "Testing";
+		product.setCategory(expected);
+		String actual = product.getCategory();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetCategory() {
-		fail("Not yet implemented");
+		String expected = "Testing";
+		product.setCategory(expected);
+		String actual = product.getCategory();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetName() {
-		fail("Not yet implemented");
+		String expected = "Test Name";
+		product.setName(expected);
+		String actual = product.getName();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetName() {
-		fail("Not yet implemented");
+		String expected = "Test Name";
+		product.setName(expected);
+		String actual = product.getName();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetDescription() {
-		fail("Not yet implemented");
+		String expected = "Test description";
+		product.setDescription(expected);
+		String actual = product.getDescription();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetDescription() {
-		fail("Not yet implemented");
+		String expected = "Test description";
+		product.setDescription(expected);
+		String actual = product.getDescription();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetPrice() {
-		fail("Not yet implemented");
+		double expected = 999.99;
+		product.setPrice(expected);
+		double actual = product.getPrice();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetPrice() {
-		fail("Not yet implemented");
+		double expected = 999.99;
+		product.setPrice(expected);
+		double actual = product.getPrice();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetImageFileName() {
-		fail("Not yet implemented");
+		String expected = "Test file name";
+		product.setImageFileName(expected);
+		String actual = product.getImageFileName();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testSetImageFileName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testToString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetClass() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testHashCode() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testEquals() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testClone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testToString1() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testNotify() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testNotifyAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWaitLong() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWaitLongInt() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWait() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testFinalize() {
-		fail("Not yet implemented");
+		String expected = "Test file name";
+		product.setImageFileName(expected);
+		String actual = product.getImageFileName();
+		assertEquals(expected, actual);
 	}
 
 }
