@@ -39,7 +39,7 @@
 				</div>
 				<div class="edit_div">
 <!-- 					This isn't implemented -->
-					<a>Edit</a>
+<!-- 					<a href="">Edit</a> -->
 				</div>
 			</div>
 			<div class="vertical_line"></div>
