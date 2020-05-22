@@ -28,10 +28,6 @@ public class HomeController {
 	public String register() {
 		return "register";
 	}
-	@GetMapping("/myAccount")
-	public String myAccount() {
-		return "myAccount";
-	}
 	@GetMapping("view_cookies")
 	public String view_cookies() {
 		return "view_cookies";
