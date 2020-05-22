@@ -37,7 +37,7 @@ public class UserInfoController {
 	}
 	
 	@PostMapping("editAddress")
-	public ModelAndView updateAddressInfo(@SessionAttribute("user") User user, @RequestParam("street") String street, @RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("zip") String zip) {
+	public ModelAndView updateAddressInfo(@SessionAttribute("user") User user, @RequestParam("street") String street, @RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("zip") String zip, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		AccountService.updateAddress(user.getEmail(), street, city, state, zip);
 		Address address = new Address();
@@ -47,6 +47,7 @@ public class UserInfoController {
 		address.setZip(zip);
 		mav.addObject("address", address);
 		mav.setViewName("myAccount");
+		session.setAttribute("address", address);
 		return mav;
 	}
 }

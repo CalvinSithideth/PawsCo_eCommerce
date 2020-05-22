@@ -16,7 +16,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	<div style="text-align: center">
-		<br><h3>My Account</h3><br>
+		<br><h3>My Account</h3>
 		<div class="account_div">
 			<div class="account_info">
 				<div class="inner_div">
@@ -38,8 +38,8 @@
 					</table>
 				</div>
 				<div class="edit_div">
-<!-- 					This isn't implemented -->
-<!-- 					<a href="">Edit</a> -->
+					<a href="orderHistory">Order History</a><br>
+					<a href="wishlist">Wishlist</a>
 				</div>
 			</div>
 			<div class="vertical_line"></div>
