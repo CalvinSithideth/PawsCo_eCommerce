@@ -26,7 +26,7 @@ public class LineItemJDBCTemplate implements LineItemDAO {
 
 	@Override
 	public List<LineItem> listLineItems(int orderID) {
-		String sql = "SELECT * FROM OrderDetails WHERE OrderID = " + 1;
+		String sql = "SELECT * FROM OrderDetails WHERE OrderID = " + orderID;
 		List<LineItem> lineItems = jdbcTemplateObj.query(sql, new LineItemMapper());
 		return lineItems;
 	}

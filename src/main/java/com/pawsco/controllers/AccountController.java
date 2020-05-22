@@ -2,6 +2,7 @@ package com.pawsco.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -22,9 +23,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.pawsco.business.LineItem;
 import com.pawsco.business.Order;
 import com.pawsco.business.User;
+import com.pawsco.db.orders.LineItemJDBCTemplate;
 import com.pawsco.db.orders.OrderJDBCTemplate;
+import com.pawsco.db.products.ProductJDBCTemplate;
 import com.pawsco.db.users.UserJDBCTemplate;
 
 @Controller
@@ -42,12 +46,7 @@ public class AccountController extends HttpServlet {
 	@Autowired
 	OrderJDBCTemplate orderDB;
 	@Autowired
-	public Order orders;
-
-	@GetMapping("/myAccount")
-	public String myAccount() {
-		return "myAccount";
-	}
+	public Order order;
 
 	@RequestMapping(method = RequestMethod.GET)
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -138,17 +137,17 @@ public class AccountController extends HttpServlet {
 		return registerUser(request, response);
 	}
 	
-	public String handleGetOrders(Model model) {
-		model.addAttribute("myAccount", new Order());
-		return "myAccount";
-	}
-
-	@PostMapping(value = "getOrder")
-	public Order handlePostOrders(HttpServletRequest request, HttpServletResponse response,
-			@Valid @ModelAttribute("getOrder") User user) throws SQLException, ServletException, IOException {
-
-		return getUserOrders(request, response);
-	}
+//	public String handleGetOrders(Model model) {
+//		model.addAttribute("myAccount", new User());
+//		return "myAccount";
+//	}
+//
+//	@PostMapping(value = "order")
+//	public String handlePostOrders(HttpServletRequest request, HttpServletResponse response,
+//			@Valid @ModelAttribute("order") User user) throws SQLException, ServletException, IOException {
+//
+//		return getUserOrders(request, response);
+//	}
 //	@RequestMapping(value="/register", method = RequestMethod.GET)
 //	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
 //		ModelAndView mav = new ModelAndView("register");
@@ -266,25 +265,39 @@ public class AccountController extends HttpServlet {
 		return "loggedOut";
 	}
 
-	//@RequestMapping(method = RequestMethod.GET)
-	private Order getUserOrders(HttpServletRequest request, HttpServletResponse response) {
-		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
-		orderDB = context.getBean(OrderJDBCTemplate.class);
-		userDB = context.getBean(UserJDBCTemplate.class);
-		
-		//set user email to the database and user object
-		String email = request.getParameter("email");
-		user.getEmail();
-		userDB.getUser(email);
-		user.setEmail(email);
-		
-		//get the order id from order ojbect
-		int id = orders.getOrderID();
-		
-		//return the order from the database based on the that matches the order object id
-		return orderDB.getOrder(id);
-
-	}
+//	// @RequestMapping(method = RequestMethod.GET)
+//	private String getUserOrders(HttpServletRequest request, HttpServletResponse response) {
+//		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
+//		ProductJDBCTemplate prodTemplate = context.getBean(ProductJDBCTemplate.class);
+////		orderDB = context.getBean(OrderJDBCTemplate.class);
+////		userDB = context.getBean(UserJDBCTemplate.class);
+//		HttpSession session = request.getSession();
+//		// set user email to the database and user object
+//		String email = request.getParameter("email");
+////		user.setEmail(email);
+////		userDB.getUser(email);
+//		// session.setAttribute("order", order);
+//		// Loading and displaying comprehensive order information. I am ashamed of this
+//		// code.
+//		OrderJDBCTemplate orderTemplate = context.getBean(OrderJDBCTemplate.class);
+//		LineItemJDBCTemplate lineItemTemplate = context.getBean(LineItemJDBCTemplate.class);
+//		List<Order> orders = orderTemplate.listOrders(email);
+//		
+//		for (Order order : orders) {
+//			order.setLineItems(lineItemTemplate.listLineItems(order.getOrderID()));
+//			for (LineItem lineItem : order.getLineItems()) {
+//				lineItem.setProduct(prodTemplate.getProduct(lineItem.getProduct().getProductID()));
+//			}
+//			System.out.println(order);
+//		}
+//		session.setAttribute("order", orders);
+//		((AnnotationConfigApplicationContext) context).close();
+//
+//		// return the order from the database based on the that matches the order object
+//		// id
+//		return "myAccount";
+//
+//	}
 
 	private String deleteCookies(HttpServletRequest request, HttpServletResponse response) {
 
