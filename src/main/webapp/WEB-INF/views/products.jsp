@@ -57,23 +57,30 @@
 										<c:out value="$${product.price}" />
 									</h4>
 									<form action="cart" method="post">
-										<input type="hidden" name="productID"
-											value="${product.productID}"> <input type="hidden"
-											name="action" value="add"> <label for="qty">Qty</label>
-										<input type="number" id="quantity" name="quantity" min="1"
-											max="10" value="1"> <input type="submit"
-											class="cartBtn btn btn-outline-primary waves-effect"
-											value="Add To Cart">
-
+										<input type="hidden" name="productID" value="${product.productID}">
+										<input type="hidden" name="action" value="add">
+										<label for="qty">Qty</label> <input type="number"
+											id="quantity" name="quantity" min="1" max="10" value="1">
+										<c:choose>
+											<c:when test="${product.stock > 0}">
+												<input type="submit"
+													class="cartBtn btn btn-outline-primary waves-effect"
+													value="Add To Cart">
+											</c:when>
+											<c:otherwise>
+												<input type="submit"
+													class="btn btn-outline-primary waves-effect"
+													value="Out of stock"
+													style="background-color: #DDDDDD; color: red; border-color: red"
+													disabled>
+											</c:otherwise>
+										</c:choose>
 									</form>
-									<form action="wishlist" method="post">
-										<input type="hidden" name="productID"
-											value="${product.productID}"> 
-										<input type="hidden"
-											name="action" value="wishlist"> <input type="submit"
-											id="wishlist"
-											class="wishlistBtn btn btn-outline-primary waves-effect"
-											value="+ Wishlist">
+										<form action="wishlist" method="post">
+											<input type="hidden" name="productID"
+												value="${product.productID}"> 
+											<input type="hidden"
+												name="action" value="+ Wishlist"> <input type="submit">
 									</form>
 
 									<!--Text-->

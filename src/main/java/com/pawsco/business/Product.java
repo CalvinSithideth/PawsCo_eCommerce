@@ -10,6 +10,7 @@ public class Product {
 	private String name;
 	private String description;
 	private double price;
+	private int stock;
 	private String imageFileName;
 	
 	public int getProductID() {
@@ -42,6 +43,12 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 	public String getImageFileName() {
 		return imageFileName;
 	}
@@ -52,7 +59,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [productID=" + productID + ", category=" + category + ", name=" + name + ", description="
-				+ description + ", price=" + price + ", imageFileName=" + imageFileName + "]";
+				+ description + ", price=" + price + ", stock=" + stock + ", imageFileName=" + imageFileName + "]";
 	}
 
 	@Override

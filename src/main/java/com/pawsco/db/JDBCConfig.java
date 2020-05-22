@@ -14,8 +14,8 @@ public class JDBCConfig {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/pawsco");
-		dataSource.setUsername("pawsco_admin");
-		dataSource.setPassword("swordfish");
+		dataSource.setUsername("root");
+		dataSource.setPassword("Parente2019$");
 		return dataSource;
 	}
 	

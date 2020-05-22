@@ -19,3 +19,7 @@ function getFormData() {
 function showHideWishList(){
 	$("div").filter(".wishList").toggle();
 };
+
+function showHideOrders(){
+	$("div").filter(".getOrder").toggle();
+};

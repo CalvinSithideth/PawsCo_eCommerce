@@ -26,7 +26,7 @@ public class LineItemJDBCTemplate implements LineItemDAO {
 
 	@Override
 	public List<LineItem> listLineItems(int orderID) {
-		String sql = "SELECT * FROM OrderDetails WHERE OrderID = " + 1;
+		String sql = "SELECT * FROM OrderDetails WHERE OrderID = " + orderID;
 		List<LineItem> lineItems = jdbcTemplateObj.query(sql, new LineItemMapper());
 		return lineItems;
 	}
@@ -35,6 +35,9 @@ public class LineItemJDBCTemplate implements LineItemDAO {
 	public void createLineItem(int orderID, int productID, int quantity) {
 		String sql = "INSERT INTO OrderDetails (OrderID, ProductID, Quantity) VALUES (?, ?, ?)";
 		jdbcTemplateObj.update(sql, orderID, productID, quantity);
+		
+		sql = "UPDATE Products SET Stock = Stock - ? WHERE ProductID = ?";
+		jdbcTemplateObj.update(sql, quantity, productID);
 	}
 
 }

@@ -3,6 +3,9 @@ package com.pawsco.business;
 import java.sql.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Order {
 
 	private int orderID;
