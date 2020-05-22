@@ -40,8 +40,7 @@ public class WishListItemJDBCTemplate implements WishListMappingDAO {
 
 	@Override
 	public WishListItem checkWishlist(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "";
 	}
 
 }

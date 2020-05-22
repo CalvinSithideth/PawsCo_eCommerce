@@ -15,7 +15,7 @@ public class JDBCConfig {
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/pawsco");
 		dataSource.setUsername("root");
-		dataSource.setPassword("Parente2019$");
+		dataSource.setPassword("swordfish");
 		return dataSource;
 	}
 	

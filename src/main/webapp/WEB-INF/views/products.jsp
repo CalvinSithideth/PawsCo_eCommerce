@@ -76,11 +76,10 @@
 											</c:otherwise>
 										</c:choose>
 									</form>
-										<form action="wishlist" method="post">
+									<form action="wishlist" method="post">
 											<input type="hidden" name="productID"
 												value="${product.productID}"> 
-											<input type="hidden"
-												name="action" value="+ Wishlist"> <input type="submit">
+											<input class="cartBtn btn btn-outline-primary waves-effect" name="action" value="+ Wishlist" type="submit">
 									</form>
 
 									<!--Text-->
