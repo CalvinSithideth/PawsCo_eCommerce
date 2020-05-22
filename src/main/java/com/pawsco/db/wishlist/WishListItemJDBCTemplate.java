@@ -32,15 +32,16 @@ public class WishListItemJDBCTemplate implements WishListMappingDAO {
 	}
 
 	@Override
-	public void setWishlist(String email, int productID) {
+	public void setWishlistItem(String email, int productID) {
 		String sql ="INSERT INTO wishlistmappings (Email, ProductId) VALUES (?, ?)";
 				jdbcTemplateObj.update(sql, email, productID);
 
 	}
 
 	@Override
-	public WishListItem checkWishlist(String email) {
-		String sql = "";
+	public void deleteWishlistItem(String email, int productID) {
+		String sql ="DELETE FROM wishlistmappings WHERE Email='"+email+"' AND ProductId="+ productID;
+		jdbcTemplateObj.execute(sql);
 	}
 
 }

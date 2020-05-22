@@ -11,7 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;	
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;	
-import org.springframework.stereotype.Controller;	
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;	
 import org.springframework.web.bind.annotation.PostMapping;	
 import org.springframework.web.bind.annotation.RequestMapping;	
@@ -19,7 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;	
 
 import com.pawsco.business.User;	
-import com.pawsco.business.WishListItem;	
+import com.pawsco.business.WishListItem;
+import com.pawsco.cart.CartService;
 import com.pawsco.db.wishlist.WishListItemJDBCTemplate;	
 
 @Controller	
@@ -61,7 +63,15 @@ public class WishlistController extends HttpServlet {
 		WishListItemJDBCTemplate wishlistDB = context.getBean(WishListItemJDBCTemplate.class);	
 		User user = (User) session.getAttribute("user");	
 	
-		wishlistDB.setWishlist(user.getEmail(), productID);	
+
+		switch (action) {
+		case "+ Wishlist":
+			wishlistDB.setWishlistItem(user.getEmail(), productID);	
+			break;
+		case "Remove Item":
+			wishlistDB.deleteWishlistItem(user.getEmail(), productID);
+			break;
+	}
 		ModelAndView mav = new ModelAndView();	
 
 		List<WishListItem> wishlistItems = wishlistDB.getWishlist(user.getEmail());	
@@ -73,6 +83,7 @@ public class WishlistController extends HttpServlet {
 
 		return mav;	
 	}	
+	
 
 
 }

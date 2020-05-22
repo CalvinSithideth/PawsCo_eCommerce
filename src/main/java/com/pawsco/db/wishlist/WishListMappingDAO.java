@@ -11,8 +11,8 @@ public interface WishListMappingDAO {
 	public void setDataSource(DataSource ds);
 
 	public List<WishListItem> getWishlist(String email); 
-	public void setWishlist(String email, int productID); 
-	public WishListItem checkWishlist(String email);
+	public void setWishlistItem(String email, int productID); 
+	public void deleteWishlistItem(String email, int productID); 
 	
 
 }
