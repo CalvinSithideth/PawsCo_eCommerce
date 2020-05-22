@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,28 +16,26 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="resources/js/wishlist.js"></script>
+<!-- <script src="resources/js/wishlist.js"></script> -->
 
 </head>
 <body>
 
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="container bootstrap snippet" style="padding-bottom: 40px">
-		<div class="col-md-9 col-sm-8 content">
+	<h4 style="text-align:center" >Your Wishlist</h4>
 
-			<div class="row">
-				<div class="col-md-12">
-					<div class="panel panel-info panel-shadow">
-						<div class="panel-body">
-							<div class="table-responsive" id="wishlistDiv"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 	<button id="test">TEST</button> -->
+	<table>
 
+		<c:forEach var="wishlist" items="${wishlist }">
+			<tr align="center">
+					<th style="padding: 2.5px; width: 10%;" rowspan="1"><img
+						src="resources/images/${wishlist.product.imageFileName}"
+						style="max-width: 300px; max-height: 250px; width: auto; height: auto; display: block; margin-left: auto; margin-right: auto; margin-top: 10px" />
+						<c:out value="Name: ${wishlist.product.name}" /> <br> <c:out
+							value="Price: $${wishlist.product.price}" /> <br></th>	
+			</tr>
+		</c:forEach>
+	</table>	
 
 	<jsp:include page="footer.jsp"></jsp:include>
 
