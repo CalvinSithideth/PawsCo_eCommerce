@@ -92,14 +92,14 @@
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="firstName">First name</label> <input type="text"
-								class="form-control" id="firstName" placeholder="" value=""
+								class="form-control" id="firstName" placeholder="" value="${user.firstName}"
 								required>
 							<div class="invalid-feedback">Valid first name is required.
 							</div>
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="lastName">Last name</label> <input type="text"
-								class="form-control" id="lastName" placeholder="" value=""
+								class="form-control" id="lastName" placeholder="" value="${user.lastName}"
 								required>
 							<div class="invalid-feedback">Valid last name is required.
 							</div>
@@ -122,7 +122,7 @@
 					<div class="mb-3">
 						<label for="email">Email <span class="text-muted">(Optional)</span></label>
 						<input type="email" class="form-control" id="email"
-							placeholder="you@example.com">
+							placeholder="you@example.com" value="${user.email}">
 						<div class="invalid-feedback">Please enter a valid email
 							address for shipping updates.</div>
 					</div>
@@ -130,7 +130,7 @@
 					<div class="mb-3">
 						<label for="address">Address</label> <input type="text"
 							class="form-control" id="address" placeholder="1234 Main St"
-							required>
+							value="${address.street}" required>
 						<div class="invalid-feedback">Please enter your shipping
 							address.</div>
 					</div>
@@ -386,7 +386,7 @@
 								<option value="UA">Ukraine</option>
 								<option value="AE">United Arab Emirates</option>
 								<option value="GB">United Kingdom</option>
-								<option value="US">United States</option>
+								<option value="US" selected="selected">United States</option>
 								<option value="UM">United States Minor Outlying Islands</option>
 								<option value="UY">Uruguay</option>
 								<option value="UZ">Uzbekistan</option>
@@ -455,7 +455,7 @@
 								<option value="UT">Utah</option>
 								<option value="VT">Vermont</option>
 								<option value="VA">Virginia</option>
-								<option value="WA">Washington</option>
+								<option value="WA" selected="selected">Washington</option>
 								<option value="WV">West Virginia</option>
 								<option value="WI">Wisconsin</option>
 								<option value="WY">Wyoming</option>
@@ -465,7 +465,7 @@
 						</div>
 						<div class="col-md-3 mb-3">
 							<label for="zip">Zip</label> <input type="text"
-								class="form-control" id="zip" placeholder="" required>
+								class="form-control" id="zip" placeholder="" value="${address.zip}" required>
 							<div class="invalid-feedback">Zip code required.</div>
 						</div>
 					</div>

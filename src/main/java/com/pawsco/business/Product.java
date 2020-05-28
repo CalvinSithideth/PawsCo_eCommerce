@@ -1,5 +1,7 @@
 package com.pawsco.business;
 
+import java.sql.Date;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,6 +13,8 @@ public class Product {
 	private String description;
 	private double price;
 	private int stock;
+	private Date date;
+	
 	private String imageFileName;
 	
 	public int getProductID() {
@@ -56,10 +60,19 @@ public class Product {
 		this.imageFileName = imageFileName;
 	}
 	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "Product [productID=" + productID + ", category=" + category + ", name=" + name + ", description="
-				+ description + ", price=" + price + ", stock=" + stock + ", imageFileName=" + imageFileName + "]";
+				+ description + ", price=" + price + ", stock=" + stock + ", date=" + date + ", imageFileName="
+				+ imageFileName + "]";
 	}
 
 	@Override

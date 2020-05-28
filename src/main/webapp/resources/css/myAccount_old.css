@@ -1,9 +1,5 @@
 @charset "ISO-8859-1";
 
-h2, p{
-	color: black;
-}
-
 #signin-reg{
 	position: left;
 	right: 10%;

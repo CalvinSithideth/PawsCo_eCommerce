@@ -58,5 +58,12 @@ public class OrderJDBCTemplate implements OrderDAO {
 		return keyHolder.getKey().intValue();
 	}
 
+	@Override
+	public Order getDate(int id) {
+		String sql = "Select Date FROM Orders WHERE OrderID = '" + id + "'";
+		Order order = jdbcTemplateObj.queryForObject(sql, new OrderMapper());
+		return order;
+	}
+
 }
 

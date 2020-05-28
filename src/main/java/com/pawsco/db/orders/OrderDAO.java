@@ -17,5 +17,8 @@ public interface OrderDAO {
 	public List<Order> listOrders(String email);
 	
 	public int createOrder(String email, Date date);
+	
+	public Order getDate(int id);
+	
 }
 
