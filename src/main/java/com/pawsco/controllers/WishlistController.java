@@ -33,6 +33,8 @@ public class WishlistController extends HttpServlet {
 	@Autowired	
 	private List<WishListItem> wlitem;	
 
+	
+	//getting product info to wishlist and saving it to user
 	@GetMapping	
 	public ModelAndView getWishlist(HttpServletRequest request, HttpServletResponse response)	
 			throws IOException, ServletException {	
@@ -56,6 +58,7 @@ public class WishlistController extends HttpServlet {
 		return mav;	
 	}	
 
+	//adding and deleting products from wishlist
 	@PostMapping	
 	public ModelAndView addWishlistItem(@RequestParam String action, @RequestParam int productID, @RequestParam(required = false) Integer quantity, HttpSession session) {	
 
@@ -64,6 +67,7 @@ public class WishlistController extends HttpServlet {
 		User user = (User) session.getAttribute("user");	
 	
 
+		//checks value of button and performs the method it calls
 		switch (action) {
 		case "+ Wishlist":
 			wishlistDB.setWishlistItem(user.getEmail(), productID);	
@@ -75,8 +79,6 @@ public class WishlistController extends HttpServlet {
 		ModelAndView mav = new ModelAndView();	
 
 		List<WishListItem> wishlistItems = wishlistDB.getWishlist(user.getEmail());	
-
-
 		mav.addObject("wishlist", wishlistItems);	
 		mav.setViewName("wishlist");	
 		((AnnotationConfigApplicationContext) context).close();	

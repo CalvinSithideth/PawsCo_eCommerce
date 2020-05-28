@@ -13,6 +13,7 @@ import com.pawsco.db.products.ProductJDBCTemplate;
 
 public class WishlistMapper implements RowMapper<WishListItem>{
 
+
 	public WishListItem mapRow(ResultSet rs, int rowNum) throws SQLException{
 		WishListItem wishlistItem = new WishListItem();
 		wishlistItem.setId(rs.getInt("id"));

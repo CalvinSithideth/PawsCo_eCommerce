@@ -46,7 +46,7 @@
 				<nav class="list-group">
 
 					<a class="list-group-item with-badge" href="#"></a> <a
-						class="list-group-item with-badge active" href="#"
+						class="list-group-item with-badge active" href="wishlist"
 						onclick="showHideWishList()"><i class="fa fa-heart"></i>Wishlist</a>
 					<a class="list-group-item with-badge" href="orderHistory" href="#">Order</a>
 					

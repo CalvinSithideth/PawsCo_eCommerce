@@ -23,6 +23,7 @@ public class WishListItemJDBCTemplate implements WishListMappingDAO {
 		this.jdbcTemplateObj = new JdbcTemplate(dataSource);
 	}
 
+	//getting product info from wishlist table
 	@Override
 	public List<WishListItem> getWishlist(String email) {
 		String sql = "Select * from wishlistmappings "
@@ -31,6 +32,7 @@ public class WishListItemJDBCTemplate implements WishListMappingDAO {
 		return wl;
 	}
 
+	//adding product to wishlist
 	@Override
 	public void setWishlistItem(String email, int productID) {
 		String sql ="INSERT INTO wishlistmappings (Email, ProductId) VALUES (?, ?)";
@@ -38,10 +40,17 @@ public class WishListItemJDBCTemplate implements WishListMappingDAO {
 
 	}
 
+	//deleting product from wishlist
 	@Override
 	public void deleteWishlistItem(String email, int productID) {
 		String sql ="DELETE FROM wishlistmappings WHERE Email='"+email+"' AND ProductId="+ productID;
 		jdbcTemplateObj.execute(sql);
 	}
+	
+	/*
+	 * @Override public void addToCart(String email, int productID) { String sql
+	 * ="DELETE FROM wishlistmappings WHERE Email='"+email+"' AND ProductId="+
+	 * productID; jdbcTemplateObj.execute(sql); }
+	 */
 
 }
