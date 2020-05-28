@@ -25,7 +25,7 @@
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<div style="width: 90%; text-align: center">
-		<h3>Your Wishlist</h3>
+		<h3>${user.firstName}'s Wishlist</h3>
 		<span style="color: red"></span>
 	</div>
 	<table>
@@ -34,6 +34,7 @@
 			<th>Price</th>
 			<th>Name</th>
 			<th>Remove Item</th>
+		<!-- 	<th>Add To Cart</th> -->
 		</tr>
 		<c:forEach var="wishlist" items="${wishlist }">
 			<tr>
@@ -50,6 +51,12 @@
 							type="submit" name="action" value="Remove Item">
 					</form>
 				</td>
+				<!-- <td>
+					<form action="cart" method="post">
+						<input type="submit"
+							value="Add To Cart">
+					</form>
+				</td> -->
 			</tr>
 		</c:forEach>
 		<tr>
@@ -62,6 +69,7 @@
 			<td></td>
 			<td></td>
 			<td></td>
+	<!-- 		<td></td> -->
 		</tr>
 	</table>
 	<br>

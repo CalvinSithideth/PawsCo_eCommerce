@@ -34,14 +34,6 @@ public class WishListItem{
 		this.id = id;
 	}
 
-	public void addToWishlist() {
-
-	}
-
-	public void removeFromWishList() {
-
-	}
-
 	@Override
 	public String toString() {
 		return "WishListItem [product=" + product + ", user=" + user + ", id=" + id + "]";
