@@ -58,7 +58,18 @@ CREATE TABLE OrderDetails (
 OrderID INT NOT NULL,
 ProductID INT NOT NULL,
 Quantity INT NOT NULL,
-PRIMARY KEY (OrderID, ProductID));
+PRIMARY KEY (OrderID, ProductID),
+FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+FOREIGN KEY (ProductID) REFERENCES Products(ProductID));
+
+CREATE TABLE Addresses (
+AddressID INT PRIMARY KEY AUTO_INCREMENT,
+Email NVARCHAR(40) NOT NULL,
+Street NVARCHAR(40) NOT NULL,
+City NVARCHAR(40) NOT NULL,
+State NVARCHAR(2) NOT NULL,
+Zip NVARCHAR(5) NOT NULL,
+FOREIGN KEY (Email) REFERENCES Users(Email));
 
 CREATE VIEW AllProducts AS
 SELECT 
@@ -71,3 +82,10 @@ SELECT
     p.ImageFilename
 FROM Products p 
 JOIN Categories c ON p.CategoryID = c.CategoryID;
+    
+CREATE TABLE WishlistMappings (
+Email NVARCHAR(40) NOT NULL,
+ProductID INT(40) NOT NULL,
+FOREIGN KEY(Email) REFERENCES Users (Email), 
+FOREIGN KEY(ProductID) REFERENCES Products (ProductID),
+PRIMARY KEY(Email, ProductID));
