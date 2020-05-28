@@ -1,0 +1,21 @@
+img {
+	width:80%;
+	padding-top: 5%;
+	display: block;
+    margin-right: auto;
+    margin-left: auto;  
+}
+.row {
+	margin: 0% 10% 0% 10%;
+}
+
+.rounded-circle{
+	width:230px; 
+	height:225px;
+
+}
+
+/* .card-up{
+	background-color: #82b1ff blue accent-1;
+
+} */

@@ -1,0 +1,49 @@
+@charset "ISO-8859-1";
+
+.account_div {
+	display: inline-block;
+	text-align: left;
+	border: 1px solid #777777; 
+	padding: 50px; 
+	border-radius: 10px; 
+	margin: 10px;
+	box-shadow: 2px 2px 4px #BBBBBB;
+}
+
+.account_div h5 {
+	text-align: center;
+}
+
+.account_info {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: space-between;
+	vertical-align: top;
+	height: 200px;
+}
+
+.shipping_info {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: space-between;
+	vertical-align: top;
+	height: 200px;
+}
+
+.vertical_line {
+	display: inline-block;
+	height: 200px;
+	border-right: 1px solid #BBBBBB;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.table_label {
+	font-weight: bold;
+	padding-right: 10px;
+	text-align: right;
+}
+
+.edit_div {
+	text-align: center;
+}
