@@ -71,3 +71,10 @@ SELECT
     p.ImageFilename
 FROM Products p 
 JOIN Categories c ON p.CategoryID = c.CategoryID;
+    
+CREATE TABLE WishlistMappings (
+Email NVARCHAR(40) NOT NULL,
+ProductID INT(40) NOT NULL,
+FOREIGN KEY(Email) REFERENCES Users (Email), 
+FOREIGN KEY(ProductID) REFERENCES Products (ProductID),
+PRIMARY KEY(Email, ProductID));
