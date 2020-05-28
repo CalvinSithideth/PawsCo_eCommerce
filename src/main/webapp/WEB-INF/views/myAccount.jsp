@@ -77,4 +77,5 @@
 	<jsp:include page="footer.jsp"></jsp:include>
 	<script src="resources/js/home.js"></script>
 </body>
+>>>>>>> refs/heads/master
 </html>

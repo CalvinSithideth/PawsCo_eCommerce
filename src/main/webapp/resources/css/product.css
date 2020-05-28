@@ -132,3 +132,13 @@
 	background-color: #3071A9;
 	color: white;
 }
+
+#orderHeader{
+	border-style: solid;
+	width: 30%;
+	text-align: center; 
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto; 
+	margin-top: 10px
+}
