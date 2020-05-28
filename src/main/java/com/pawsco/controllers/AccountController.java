@@ -48,63 +48,26 @@ public class AccountController extends HttpServlet {
 	@Autowired
 	public Order order;
 
-	@RequestMapping(method = RequestMethod.GET)
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
 
-		// get current action
-		String action = request.getParameter("action");
-		if (action == null) {
-			action = "home"; // default action
-		}
-
-		// perform action and set URL to appropriate page
-		String url = "/home";
-		if (action.equals("home")) {
-			url = "/home";
-		} else if (action.equals("registerUser")) {
-			try {
-				url = registerUser(request, response);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else if (action.equals("logout")) {
-			url = logoutUser(request, response);
-		} else if (action.equals("viewCookies")) {
-
-			url = "/view_cookies.jsp";
-		} else if (action.equals("deleteCookies")) {
-			url = deleteCookies(request, response);
-		}
-		// forward to the view
-		getServletContext().getRequestDispatcher(url).forward(request, response);
-	}
-
-	@RequestMapping(method = RequestMethod.POST)
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String action = request.getParameter("action");
-
-		// perform action and set URL to appropriate page
-		String url = "/home";
-		if (action.equals("registerUser")) {
-			try {
-				url = registerUser(request, response);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		// forward to the view
-		response.sendRedirect("home");
-	}
-
+	/**
+	 * Gets the login page and the user object
+	 * @param model
+	 * @return user object to the signin page
+	 */
 	public String handleGetLogin(Model model) {
 		model.addAttribute("signin", new User());
 		return "signin";
 	}
+	
+	/**
+	 * checks to see if the login button was clicked and sets the user data into
+	 * the loginUser method and sets the values to the user object and database
+	 * @param request
+	 * @param response
+	 * @param user
+	 * @return loginUser method
+	 * @throws SQLException
+	 */
 
 	@PostMapping(value = "login")
 	public String handlePostLogin(HttpServletRequest request, HttpServletResponse response,
@@ -113,10 +76,28 @@ public class AccountController extends HttpServlet {
 		return loginUser(request, response);
 	}
 
+	
+	/**
+	 * Gets the loggedOut page and the user object
+	 * @param model
+	 * @return loggedout page
+	 */
 	public String handleGetLogout(Model model) {
 		model.addAttribute("loggedOut", new User());
 		return "loggedOut";
 	}
+	
+	/**
+	 * once the logout button is pressed, the post method will cal the logoutUser method and remove the
+	 * user from the session
+	 * @param request
+	 * @param response
+	 * @param user
+	 * @return
+	 * @throws SQLException
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 
 	@PostMapping(value = "logout")
 	public String handlePostLogout(HttpServletRequest request, HttpServletResponse response,
@@ -125,38 +106,43 @@ public class AccountController extends HttpServlet {
 		return logoutUser(request, response);
 	}
 
+	/**
+	 * Gets the register page and the user object
+	 * @param model
+	 * @return register page
+	 */
 	public String handleGetRegistration(Model model) {
 		model.addAttribute("register", new User());
 		return "register";
 	}
 
+	/**
+	 * once the register button is pressed it calls the registerUser method
+	 * then gets the values in the form and sets them to the user object
+	 * and the database
+	 * @param request
+	 * @param response
+	 * @param User
+	 * @return registerUser method
+	 * @throws SQLException
+	 */
 	@PostMapping(value = "register")
 	public String handlePostRegistration(HttpServletRequest request, HttpServletResponse response,
 			@Valid @ModelAttribute("register") User user) throws SQLException {
 
 		return registerUser(request, response);
 	}
-	
-//	public String handleGetOrders(Model model) {
-//		model.addAttribute("myAccount", new User());
-//		return "myAccount";
-//	}
-//
-//	@PostMapping(value = "order")
-//	public String handlePostOrders(HttpServletRequest request, HttpServletResponse response,
-//			@Valid @ModelAttribute("order") User user) throws SQLException, ServletException, IOException {
-//
-//		return getUserOrders(request, response);
-//	}
-//	@RequestMapping(value="/register", method = RequestMethod.GET)
-//	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
-//		ModelAndView mav = new ModelAndView("register");
-//		mav.addObject("user", new User());
-//		mav.addObject("UserDB", new UserJDBCTemplate());
-//		return mav;
-//
-//	}
 
+
+	/**
+	 * sets the paramaters passed from the form in the jsp page, checks to see if the user exists in the
+	 * database, if it doesn't exist it will insert that new user data into the database and redirect you to
+	 * the home page with you signed in. If it does exist, it will redirect you to the register page.
+	 * @param request
+	 * @param response
+	 * @return register or home page
+	 * @throws SQLException
+	 */
 	private String registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
 		userDB = context.getBean(UserJDBCTemplate.class);
@@ -200,6 +186,15 @@ public class AccountController extends HttpServlet {
 
 	}
 
+	/**
+	 * gets the email from the login form and checks to see if that email exists in the user table from the database.
+	 * if the user doesnt exist it will redirect you to the invalidLogin page to tell you the username or
+	 * password doesnt exist
+	 * @param request
+	 * @param response
+	 * @return login or invalidLogin page
+	 * @throws SQLException
+	 */
 	private String loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 
 		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
@@ -238,12 +233,21 @@ public class AccountController extends HttpServlet {
 
 			message = "Email does not exist";
 			request.setAttribute("message", message);
-			url = "register";
+			url = "invalidLogin";
 		}
 
 		return url;
 	}
 
+	/**
+	 * if the signout button is pressed, the site will remove the user session and take you to the loggedOut page
+	 * then after 5 seconds it will redirect you to the home page
+	 * @param request
+	 * @param response
+	 * @return loggedOut.jsp
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	private String logoutUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -264,53 +268,21 @@ public class AccountController extends HttpServlet {
 		}
 		return "loggedOut";
 	}
-
-//	// @RequestMapping(method = RequestMethod.GET)
-//	private String getUserOrders(HttpServletRequest request, HttpServletResponse response) {
-//		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
-//		ProductJDBCTemplate prodTemplate = context.getBean(ProductJDBCTemplate.class);
-////		orderDB = context.getBean(OrderJDBCTemplate.class);
-////		userDB = context.getBean(UserJDBCTemplate.class);
-//		HttpSession session = request.getSession();
-//		// set user email to the database and user object
-//		String email = request.getParameter("email");
-////		user.setEmail(email);
-////		userDB.getUser(email);
-//		// session.setAttribute("order", order);
-//		// Loading and displaying comprehensive order information. I am ashamed of this
-//		// code.
-//		OrderJDBCTemplate orderTemplate = context.getBean(OrderJDBCTemplate.class);
-//		LineItemJDBCTemplate lineItemTemplate = context.getBean(LineItemJDBCTemplate.class);
-//		List<Order> orders = orderTemplate.listOrders(email);
-//		
-//		for (Order order : orders) {
-//			order.setLineItems(lineItemTemplate.listLineItems(order.getOrderID()));
-//			for (LineItem lineItem : order.getLineItems()) {
-//				lineItem.setProduct(prodTemplate.getProduct(lineItem.getProduct().getProductID()));
-//			}
-//			System.out.println(order);
-//		}
-//		session.setAttribute("order", orders);
-//		((AnnotationConfigApplicationContext) context).close();
-//
-//		// return the order from the database based on the that matches the order object
-//		// id
-//		return "myAccount";
-//
-//	}
-
-	private String deleteCookies(HttpServletRequest request, HttpServletResponse response) {
-
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				cookie.setValue("");
-				cookie.setMaxAge(0); // delete the cookie
-				cookie.setPath("/");
-				response.addCookie(cookie);
-			}
-		}
-		String url = "/delete_cookies.jsp";
-		return url;
-	}
 }
+
+
+//	private String deleteCookies(HttpServletRequest request, HttpServletResponse response) {
+//
+//		Cookie[] cookies = request.getCookies();
+//		if (cookies != null) {
+//			for (Cookie cookie : cookies) {
+//				cookie.setValue("");
+//				cookie.setMaxAge(0); // delete the cookie
+//				cookie.setPath("/");
+//				response.addCookie(cookie);
+//			}
+//		}
+//		String url = "/delete_cookies.jsp";
+//		return url;
+//	}
+//}
