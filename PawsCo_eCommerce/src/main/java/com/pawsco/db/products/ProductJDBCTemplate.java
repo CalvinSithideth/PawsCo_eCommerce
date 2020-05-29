@@ -38,6 +38,20 @@ public class ProductJDBCTemplate implements ProductDAO {
 		List<Product> products = jdbcTemplateObj.query(sql, new ProductMapper());
 		return products;
 	}
+	
+	@Override
+	public boolean addProductStock(int id, int amtStockToAdd) {
+		Product product = getProduct(id);
+		int currStock = product.getStock();
+		String sql = "UPDATE Products SET Stock = " + (currStock + amtStockToAdd) + " WHERE ProductID = " + id;
+		int rows = jdbcTemplateObj.update(sql);
+		if (rows > 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 }
 
