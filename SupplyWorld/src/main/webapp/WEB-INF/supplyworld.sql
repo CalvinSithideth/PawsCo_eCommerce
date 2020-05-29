@@ -32,3 +32,6 @@ Quantity int not null,
 primary key (OrderID, ProductID),
 foreign key (OrderID) references Orders(OrderID),
 foreign key (ProductID) references Products(ProductID));
+
+create user 'supplyworld_admin'@'localhost' identified by 'supplyworld';
+grant all privileges on supplyworld.* to 'supplyworld_admin'@'localhost';
