@@ -13,4 +13,6 @@ public interface ProductDAO {
 	public Product getProduct(int id);
 	
 	public List<Product> listProducts();
+	
+	public boolean addProductStock(int id, int amtStockToAdd);
 }
