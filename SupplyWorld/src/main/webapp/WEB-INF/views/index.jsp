@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 	<title>SupplyWorld</title>
 </head>
-<%@ include file="header.jsp" %>
+<%@ include file="header.jsp"%>
 <body>
 	<div class="body-div-main">
 		<div class="div-login">
@@ -15,6 +15,7 @@
 				<h3>SupplyWorld Admin Login</h3>
 			</div>
 			<form action="login" method="post">
+
 				<span>Username</span>
 				<input class="login-txt" type="text" name="username">
 				<span>Password</span>
@@ -25,5 +26,8 @@
 			</form>
 		</div>
 	</div>
+	<footer id="footer">
+		<p>Copyright � 2020 All rights reserved.</p>
+	</footer>
 </body>
 </html>

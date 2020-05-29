@@ -1,0 +1,66 @@
+@charset "ISO-8859-1";
+
+.header-div-main {
+	background-color: green;
+	width: 100%;
+	text-align: center;
+	padding: 3px;
+}
+
+.header-div-sub {
+	width: 80%;
+	display: inline-block;
+	text-align: left;
+}
+
+.header-div-logo a {
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+}
+
+body {
+	background-image: url( ../images/pawprint.jpg);
+	margin: 0px;
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right:0;
+	height:40px;
+	width: 100%;
+	background-color: green;
+	color: white;
+	text-align: center;
+}
+
+table {
+	border: 5px solid green;
+	border-collapse: collapse;
+	width: 50em;
+    width:80%; 
+    margin-left:10%; 
+    margin-right:10%;
+}
+
+th, td {
+	border: 1px solid black;
+	text-align: left;
+	padding: .5em;
+}
+
+input[type=text] {
+	width: 25%;
+}
+
+td {
+	width: 30%;
+}
+
+h3 {
+	padding-left:10%;
+	margin-bottom: .5em;
+	margin-top: .5em;
+}
