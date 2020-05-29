@@ -35,7 +35,7 @@ body {
 	display: inline-block;
 	background-color: #FFFFFF;
 	border: 3px double #76323F;
-	padding: 10px;
+	padding: 20px;
 	margin: 30px;
 	font-family: Arial, Helvetica, sans-serif;
 	box-shadow: 2px 2px #AAAAAA;
@@ -45,6 +45,7 @@ body {
 	width: 100%;
 	margin-top: 5px;
 	margin-bottom: 5px;
+	box-sizing: border-box;
 }
 
 .login-txt {
@@ -68,6 +69,8 @@ body {
 	font-size: 15px;
 	transition: 0.3s;
 	cursor: pointer;
+	width: 100%;
+	margin-top: 5px;
 }
 
 .login-btn:hover {
