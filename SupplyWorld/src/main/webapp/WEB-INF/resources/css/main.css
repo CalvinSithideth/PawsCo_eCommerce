@@ -1,9 +1,9 @@
 @charset "ISO-8859-1";
 
 .header-div-main {
+	background-color: green;
 	width: 100%;
 	text-align: center;
-	background-color: #FFFFFF;
 	padding: 3px;
 }
 
@@ -15,12 +15,12 @@
 
 .header-div-logo a {
 	text-decoration: none;
-	color: #565656;
+	color: white;
 	font-size: 30px;
 }
 
 body {
-	background-color: #D7CEC7;
+	background-image: url( ../images/pawprint.jpg);
 	margin: 0px;
 }
 
@@ -61,7 +61,7 @@ body {
 }
 
 .login-btn {
-	background-color: #C09F80;
+	background-color: green;
 	color: white;
 	border: none;
 	padding: 10px;
@@ -71,6 +71,18 @@ body {
 }
 
 .login-btn:hover {
-	background-color: #947a62;
+	background-color:#00d200;
 	transition: 0.3s;
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right:0;
+	height:40px;
+	width: 100%;
+	background-color: green;
+	color: white;
+	text-align: center;
 }
