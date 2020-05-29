@@ -2,7 +2,6 @@ package com.pawsco.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -10,35 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.pawsco.business.LineItem;
 import com.pawsco.business.Order;
 import com.pawsco.business.User;
-import com.pawsco.db.orders.LineItemJDBCTemplate;
 import com.pawsco.db.orders.OrderJDBCTemplate;
-import com.pawsco.db.products.ProductJDBCTemplate;
 import com.pawsco.db.users.UserJDBCTemplate;
 
 @Controller
-//@RequestMapping(value = "/register")
 public class AccountController extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Autowired
 	public User user;
 	@Autowired
@@ -101,62 +90,43 @@ public class AccountController extends HttpServlet {
 		response.sendRedirect("home");
 	}
 
-	public String handleGetLogin(Model model) {
-		model.addAttribute("signin", new User());
-		return "signin";
-	}
-
-	@PostMapping(value = "login")
-	public String handlePostLogin(HttpServletRequest request, HttpServletResponse response,
-			@Valid @ModelAttribute("login") User user) throws SQLException {
-
-		return loginUser(request, response);
-	}
-
-	public String handleGetLogout(Model model) {
-		model.addAttribute("loggedOut", new User());
-		return "loggedOut";
-	}
-
-	@PostMapping(value = "logout")
-	public String handlePostLogout(HttpServletRequest request, HttpServletResponse response,
-			@Valid @ModelAttribute("logout") User user) throws SQLException, ServletException, IOException {
-
-		return logoutUser(request, response);
-	}
-
-	public String handleGetRegistration(Model model) {
-		model.addAttribute("register", new User());
-		return "register";
-	}
+//	public String handleGetLogin(Model model) {
+//		model.addAttribute("signin", new User());
+//		return "signin";
+//	}
+//
+//	@PostMapping(value = "login")
+//	public String handlePostLogin(HttpServletRequest request, HttpServletResponse response,
+//			@Valid @ModelAttribute("login") User user) throws SQLException, IOException {
+//
+//		return loginUser(request, response);
+//	}
+//
+//	public String handleGetLogout(Model model) {
+//		model.addAttribute("loggedOut", new User());
+//		return "loggedOut";
+//	}
+//
+//	@PostMapping(value = "logout")
+//	public String handlePostLogout(HttpServletRequest request, HttpServletResponse response,
+//			@Valid @ModelAttribute("logout") User user) throws SQLException, ServletException, IOException {
+//
+//		return logoutUser(request, response);
+//	}
+//
+//	public String handleGetRegistration(Model model) {
+//		model.addAttribute("register", new User());
+//		return "register";
+//	}
+//
+//	@PostMapping(value = "register")
+//	public String handlePostRegistration(HttpServletRequest request, HttpServletResponse response,
+//			@Valid @ModelAttribute("register") User user) throws SQLException {
+//
+//		return registerUser(request, response);
+//	}
 
 	@PostMapping(value = "register")
-	public String handlePostRegistration(HttpServletRequest request, HttpServletResponse response,
-			@Valid @ModelAttribute("register") User user) throws SQLException {
-
-		return registerUser(request, response);
-	}
-	
-//	public String handleGetOrders(Model model) {
-//		model.addAttribute("myAccount", new User());
-//		return "myAccount";
-//	}
-//
-//	@PostMapping(value = "order")
-//	public String handlePostOrders(HttpServletRequest request, HttpServletResponse response,
-//			@Valid @ModelAttribute("order") User user) throws SQLException, ServletException, IOException {
-//
-//		return getUserOrders(request, response);
-//	}
-//	@RequestMapping(value="/register", method = RequestMethod.GET)
-//	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
-//		ModelAndView mav = new ModelAndView("register");
-//		mav.addObject("user", new User());
-//		mav.addObject("UserDB", new UserJDBCTemplate());
-//		return mav;
-//
-//	}
-
 	private String registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
 		userDB = context.getBean(UserJDBCTemplate.class);
@@ -173,8 +143,8 @@ public class AccountController extends HttpServlet {
 			message = "This email address already exists. <br>" + "Please enter another email address.";
 			request.setAttribute("message", message);
 
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
+//			HttpSession session = request.getSession();
+//			session.setAttribute("user", user);
 
 			return "register";
 
@@ -200,23 +170,28 @@ public class AccountController extends HttpServlet {
 
 	}
 
-	private String loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+	@PostMapping(value = "login")
+	private String loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 
 		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
-
+		HttpSession session = request.getSession();
 		userDB = context.getBean(UserJDBCTemplate.class);
 
 		String url = null;
 		// get the user data
 		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 		String message;
-		// check that email address doesn't already exist
-		if (userDB.userExists(email)) {
+		
+		if (userDB.userExists(email) && userDB.validateUser(email, password)) {
 			// store the data in a User object
 			user = userDB.getUser(email);
+			System.out.println(user);
 			user.setEmail(email);
+			
+
 			// store the User object as a session attribute
-			HttpSession session = request.getSession();
+			// HttpSession session = request.getSession();
 			session.setAttribute("user", user);
 
 			if (request.getParameter("remember") != null) {
@@ -233,12 +208,18 @@ public class AccountController extends HttpServlet {
 
 			message = "logging in...";
 			request.setAttribute("message", message);
-			url = "home";
+			
+			if(user.getIsAdmin()) {
+				url = "admin";
+			}else {
+				url = "home";
+			}
+			
 		} else {
 
 			message = "Email does not exist";
 			request.setAttribute("message", message);
-			url = "register";
+			url = "invalidLogin";
 		}
 
 		return url;
@@ -265,40 +246,7 @@ public class AccountController extends HttpServlet {
 		return "loggedOut";
 	}
 
-//	// @RequestMapping(method = RequestMethod.GET)
-//	private String getUserOrders(HttpServletRequest request, HttpServletResponse response) {
-//		ApplicationContext context = new AnnotationConfigApplicationContext("com.pawsco");
-//		ProductJDBCTemplate prodTemplate = context.getBean(ProductJDBCTemplate.class);
-////		orderDB = context.getBean(OrderJDBCTemplate.class);
-////		userDB = context.getBean(UserJDBCTemplate.class);
-//		HttpSession session = request.getSession();
-//		// set user email to the database and user object
-//		String email = request.getParameter("email");
-////		user.setEmail(email);
-////		userDB.getUser(email);
-//		// session.setAttribute("order", order);
-//		// Loading and displaying comprehensive order information. I am ashamed of this
-//		// code.
-//		OrderJDBCTemplate orderTemplate = context.getBean(OrderJDBCTemplate.class);
-//		LineItemJDBCTemplate lineItemTemplate = context.getBean(LineItemJDBCTemplate.class);
-//		List<Order> orders = orderTemplate.listOrders(email);
-//		
-//		for (Order order : orders) {
-//			order.setLineItems(lineItemTemplate.listLineItems(order.getOrderID()));
-//			for (LineItem lineItem : order.getLineItems()) {
-//				lineItem.setProduct(prodTemplate.getProduct(lineItem.getProduct().getProductID()));
-//			}
-//			System.out.println(order);
-//		}
-//		session.setAttribute("order", orders);
-//		((AnnotationConfigApplicationContext) context).close();
-//
-//		// return the order from the database based on the that matches the order object
-//		// id
-//		return "myAccount";
-//
-//	}
-
+	@PostMapping(value = "delete_cookies")
 	private String deleteCookies(HttpServletRequest request, HttpServletResponse response) {
 
 		Cookie[] cookies = request.getCookies();

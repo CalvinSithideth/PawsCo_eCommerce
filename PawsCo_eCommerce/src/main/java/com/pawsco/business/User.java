@@ -9,6 +9,7 @@ public class User {
 //	private String password;
 	private String firstName;
 	private String lastName;
+	private Boolean isAdmin;
 	
 	public String getEmail() {
 		return email;
@@ -28,10 +29,16 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
 	@Override
 	public String toString() {
-		return "User [email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "User [email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + ", isAdmin=" + isAdmin
+				+ "]";
 	}
 
 	

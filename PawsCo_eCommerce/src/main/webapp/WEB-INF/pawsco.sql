@@ -46,7 +46,12 @@ CREATE TABLE Users (
 Email NVARCHAR(40) PRIMARY KEY,
 Password NVARCHAR(40) NOT NULL,
 FirstName NVARCHAR(40) NOT NULL,
-LastName NVARCHAR(40) NOT NULL);
+LastName NVARCHAR(40) NOT NULL,
+isAdmin BOOLEAN DEFAULT 0);
+
+INSERT INTO Users
+(Email, Password, FirstName, LastName, isAdmin) VALUES
+(admin@pawsco.com, 1234, Admin, User, true);
 
 CREATE TABLE Orders (
 OrderID INT PRIMARY KEY AUTO_INCREMENT,

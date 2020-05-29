@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -46,7 +47,7 @@ public class UserJDBCTemplate implements UserDAO {
 
 	@Override
 	public void registerUser(String email, String password, String firstName, String lastName) {
-		String sql = "INSERT INTO Users (Email, Password, FirstName, LastName) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO Users (Email, Password, FirstName, LastName, isAdmin) VALUES (?, ?, ?, ?, 0)";
 		jdbcTemplateObj.update(sql, email, password, firstName, lastName);
 	}
 	
@@ -61,6 +62,7 @@ public class UserJDBCTemplate implements UserDAO {
 		ps = conn.prepareStatement(query);
 		 ps.setString(1, email);
          rs = ps.executeQuery();
+   
          if(rs.next()) {
              // redirect or print but not both...
              System.out.println("The user is valid");
@@ -71,5 +73,15 @@ public class UserJDBCTemplate implements UserDAO {
          }
 
 	}
+	
+	public boolean validateUser(String email, String password){
+		String sql = "select * from users where Email = ? and Password = ?";
+        List<Map<String, Object>> results = jdbcTemplateObj.queryForList(sql, email, password);
+        if (results.size() == 1) {
+            return true;
+        }
+        return false;
+	}
+
 }
 
