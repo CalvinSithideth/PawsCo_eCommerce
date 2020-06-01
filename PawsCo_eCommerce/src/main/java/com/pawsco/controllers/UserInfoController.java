@@ -15,7 +15,7 @@ import com.pawsco.business.User;
 
 @Controller
 public class UserInfoController {
-
+	
 	@GetMapping("myAccount")
 	public ModelAndView accountPage(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
