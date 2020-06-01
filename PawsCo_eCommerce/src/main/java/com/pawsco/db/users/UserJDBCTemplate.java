@@ -14,9 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.pawsco.business.User;
 import com.pawsco.data.ConnectionPool;
 import com.pawsco.data.DBUtil;
+import com.pawsco.models.User;
 
 @Component
 public class UserJDBCTemplate implements UserDAO {

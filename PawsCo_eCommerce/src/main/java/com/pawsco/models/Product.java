@@ -1,4 +1,4 @@
-package com.pawsco.business;
+package com.pawsco.models;
 
 import org.springframework.stereotype.Component;
 

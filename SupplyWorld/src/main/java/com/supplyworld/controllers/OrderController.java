@@ -9,7 +9,7 @@ import com.supplyworld.services.OrderService;
 
 @RestController
 public class OrderController {
-
+	
 	@GetMapping("order/{id}/{quantity}")
 	@ResponseBody
 	public int receiveOrder(@PathVariable int id, @PathVariable int quantity) {

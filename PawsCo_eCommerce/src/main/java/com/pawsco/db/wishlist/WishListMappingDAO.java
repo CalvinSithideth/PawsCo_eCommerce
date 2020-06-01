@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.pawsco.business.WishListItem;
+import com.pawsco.models.WishListItem;
 
 public interface WishListMappingDAO {
 

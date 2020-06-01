@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.pawsco.business.Address;
-import com.pawsco.business.Order;
-import com.pawsco.business.User;
 import com.pawsco.db.orders.OrderJDBCTemplate;
 import com.pawsco.db.users.AddressJDBCTemplate;
 import com.pawsco.db.users.UserJDBCTemplate;
+import com.pawsco.models.Address;
+import com.pawsco.models.Order;
+import com.pawsco.models.User;
 
 @Controller
 public class AccountController extends HttpServlet {

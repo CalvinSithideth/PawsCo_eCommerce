@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.pawsco.business.Address;
+import com.pawsco.models.Address;
 
 public class AddressMapper implements RowMapper<Address> {
 

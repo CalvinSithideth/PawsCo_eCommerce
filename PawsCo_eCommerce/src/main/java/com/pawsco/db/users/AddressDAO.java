@@ -2,7 +2,7 @@ package com.pawsco.db.users;
 
 import javax.sql.DataSource;
 
-import com.pawsco.business.Address;
+import com.pawsco.models.Address;
 
 public interface AddressDAO {
 	

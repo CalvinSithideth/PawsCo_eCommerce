@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pawsco.account.AccountService;
-import com.pawsco.business.Address;
-import com.pawsco.business.User;
+import com.pawsco.models.Address;
+import com.pawsco.models.User;
+import com.pawsco.services.AccountService;
 
 @Controller
 public class UserInfoController {

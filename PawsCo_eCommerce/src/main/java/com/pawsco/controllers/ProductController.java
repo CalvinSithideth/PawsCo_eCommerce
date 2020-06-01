@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pawsco.business.Product;
 import com.pawsco.db.products.ProductJDBCTemplate;
+import com.pawsco.models.Product;
 
 @Controller
 public class ProductController

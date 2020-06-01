@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.pawsco.business.LineItem;
+import com.pawsco.models.LineItem;
 
 public interface LineItemDAO {
 

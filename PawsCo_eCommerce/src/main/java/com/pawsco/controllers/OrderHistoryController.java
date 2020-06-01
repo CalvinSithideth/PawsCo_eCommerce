@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pawsco.business.LineItem;
-import com.pawsco.business.Order;
-import com.pawsco.business.User;
 import com.pawsco.db.orders.LineItemJDBCTemplate;
 import com.pawsco.db.orders.OrderJDBCTemplate;
 import com.pawsco.db.products.ProductJDBCTemplate;
+import com.pawsco.models.LineItem;
+import com.pawsco.models.Order;
+import com.pawsco.models.User;
 
 @Controller
 public class OrderHistoryController {

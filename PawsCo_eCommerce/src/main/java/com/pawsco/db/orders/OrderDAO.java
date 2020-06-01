@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.pawsco.business.Order;
+import com.pawsco.models.Order;
 
 public interface OrderDAO {
 

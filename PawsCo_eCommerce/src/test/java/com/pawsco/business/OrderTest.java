@@ -15,6 +15,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.pawsco.models.LineItem;
+import com.pawsco.models.Order;
+import com.pawsco.models.Product;
+
 class OrderTest {
 	Order order;
 
