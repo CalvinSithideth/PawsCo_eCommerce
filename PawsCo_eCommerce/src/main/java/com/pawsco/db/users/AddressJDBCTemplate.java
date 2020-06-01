@@ -45,7 +45,7 @@ public class AddressJDBCTemplate implements AddressDAO {
 	}
 	
 	@Override
-	public void fatigueFueledSolution(String email, String street, String city, String state, String zip) {
+	public void updateAddressTempSolution(String email, String street, String city, String state, String zip) {
 		String sql = "DELETE FROM Addresses WHERE Email = '" + email + "'";
 		jdbcTemplateObj.update(sql);
 		sql = "INSERT INTO Addresses (Email, Street, City, State, Zip) VALUES (?, ?, ?, ?, ?)";
