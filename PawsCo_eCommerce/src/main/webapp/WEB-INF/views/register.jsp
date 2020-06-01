@@ -23,14 +23,22 @@
 				<h5>Create a new Pawsco.com account</h5>
 				<form action="register" method="post">
 				<input type="hidden" name="action" value="registerUser">
-					<label for="email">Email Address</label>
-					<input type="email" name="email" value="${user.email }" required>
-					<label for="password">Password</label>
-					<input type="password" name="password" value="" required>
-					<label for="firstName">First Name</label>
-					<input type="text" name="firstName" value="${user.firstName }" required>
-					<label for="lastName">Last Name</label>
-					<input type="text" name="lastName" value="${user.lastName }" required>
+					<label for="email">Email Address: </label>
+					<input type="email" name="email" placeholder="Email" required>
+					<label for="password">Password: </label>
+					<input type="password" name="password" placeholder="Password" required>
+					<label for="firstName">First Name: </label>
+					<input type="text" name="firstName" placeholder="First Name" required>
+					<label for="lastName">Last Name: </label>
+					<input type="text" name="lastName" placeholder="Last Name" required>
+					<label for="street">Street: </label>
+					<input type="text" name="street" id="street" placeholder="Street" required>
+					<label for="city">City: </label>
+					<input type="text" name="city" id="city" placeholder="City" required>
+					<label for="state">State: </label>
+					<input type="text" name="state" id="state" placeholder="State" required>
+					<label for="zip">Zip Code: </label>
+					<input type="text" name="zip" id="zip" placeholder="Zip Code" required>
 					<input type="submit" value="Register">
 				</form>
 				<hr>

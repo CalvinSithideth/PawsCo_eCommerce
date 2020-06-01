@@ -14,5 +14,5 @@ public interface AddressDAO {
 	
 	public void updateAddress(String email, String street, String city, String state, String zip);
 	
-	public void fatigueFueledSolution(String email, String street, String city, String state, String zip);
+	public void updateAddressTempSolution(String email, String street, String city, String state, String zip);
 }
