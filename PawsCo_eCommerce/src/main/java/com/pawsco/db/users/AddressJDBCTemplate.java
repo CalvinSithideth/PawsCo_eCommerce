@@ -44,6 +44,11 @@ public class AddressJDBCTemplate implements AddressDAO {
 		jdbcTemplateObj.update(sql, email, street, city, state, zip);
 	}
 	
+	/*
+	 * This method was made as a workaround to an issue with the way updateAddress works.
+	 * Ideally the problem with the 2 methods above will be corrected and this method 
+	 * will be deleted.
+	 */
 	@Override
 	public void updateAddressTempSolution(String email, String street, String city, String state, String zip) {
 		String sql = "DELETE FROM Addresses WHERE Email = '" + email + "'";
