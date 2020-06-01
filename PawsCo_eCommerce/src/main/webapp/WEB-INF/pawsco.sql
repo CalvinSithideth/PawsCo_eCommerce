@@ -51,7 +51,7 @@ isAdmin BOOLEAN DEFAULT 0);
 
 INSERT INTO Users
 (Email, Password, FirstName, LastName, isAdmin) VALUES
-(admin@pawsco.com, 1234, Admin, User, true);
+('admin@pawsco.com', '1234', 'Admin', 'User', true);
 
 CREATE TABLE Orders (
 OrderID INT PRIMARY KEY AUTO_INCREMENT,

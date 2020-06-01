@@ -19,7 +19,7 @@ public class AccountService {
 	public static void updateAddress(String email, String street, String city, String state, String zip) {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext("com.pawsco");
 		AddressJDBCTemplate addressJdbc = (AddressJDBCTemplate)ctx.getBean(AddressJDBCTemplate.class);
-		addressJdbc.fatigueFueledSolution(email, street, city, state, zip);
+		addressJdbc.updateAddressTempSolution(email, street, city, state, zip);
 		((AnnotationConfigApplicationContext)ctx).close();
 	}
 }
