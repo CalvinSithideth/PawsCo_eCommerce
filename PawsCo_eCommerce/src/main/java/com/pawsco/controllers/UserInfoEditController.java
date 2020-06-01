@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserInfoEditController {
 
 	@GetMapping
-	public String sooooTired() {
+	public String editPage() {
 		return "addressFormPage";
 	}
 }
