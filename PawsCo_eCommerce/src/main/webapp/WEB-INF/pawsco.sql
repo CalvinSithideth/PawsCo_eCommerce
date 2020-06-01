@@ -51,7 +51,7 @@ isAdmin BOOLEAN DEFAULT 0);
 
 INSERT INTO Users
 (Email, Password, FirstName, LastName, isAdmin) VALUES
-(admin@pawsco.com, 1234, Admin, User, true);
+('admin@pawsco.com', 1234, 'Admin', 'User', true);
 
 CREATE TABLE Orders (
 OrderID INT PRIMARY KEY AUTO_INCREMENT,
@@ -89,8 +89,8 @@ FROM Products p
 JOIN Categories c ON p.CategoryID = c.CategoryID;
     
 CREATE TABLE WishlistMappings (
+id INT PRIMARY KEY AUTO_INCREMENT,
 Email NVARCHAR(40) NOT NULL,
 ProductID INT(40) NOT NULL,
 FOREIGN KEY(Email) REFERENCES Users (Email), 
-FOREIGN KEY(ProductID) REFERENCES Products (ProductID),
-PRIMARY KEY(Email, ProductID));
+FOREIGN KEY(ProductID) REFERENCES Products (ProductID));
