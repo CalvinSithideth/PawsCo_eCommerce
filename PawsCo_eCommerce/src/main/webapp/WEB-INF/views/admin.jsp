@@ -14,9 +14,9 @@
 
 </head>
 <body>
-
 <jsp:include page="header.jsp"></jsp:include>
 	<div style="text-align: center">
+		<span>${orderConfirm}</span>
 		<br><h3>Inventory</h3><br>
 		<div style="display: inline-block">
 			
@@ -48,6 +48,18 @@
 				</c:forEach>
 			</table>
 			<br>
+			
+			<h1>Supply Order History</h1>
+			<table>
+				<c:forEach var="order" items="${supplyOrders}">
+					<tr>
+						<td>${order.orderID}</td>
+						<td>${order.productID}<td>
+						<td>${order.quantity}</td>
+						<td>${order.fulfilledStatus}</td>
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
 	</div>
 

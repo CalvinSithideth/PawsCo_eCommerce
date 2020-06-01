@@ -1,4 +1,4 @@
-package com.pawsco.business;
+package com.pawsco.models;
 
 public class LineItem {
 

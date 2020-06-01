@@ -14,7 +14,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
-import com.pawsco.business.Order;
+import com.pawsco.models.Order;
 
 @Component
 public class OrderJDBCTemplate implements OrderDAO {

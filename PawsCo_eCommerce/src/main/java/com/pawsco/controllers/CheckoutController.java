@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pawsco.business.LineItem;
-import com.pawsco.business.User;
-import com.pawsco.cart.CartService;
-import com.pawsco.checkout.CheckoutService;
+import com.pawsco.models.LineItem;
+import com.pawsco.models.User;
+import com.pawsco.services.CartService;
+import com.pawsco.services.CheckoutService;
 
 @Controller
 @RequestMapping("/checkout")

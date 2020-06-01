@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.pawsco.business.User;
+import com.pawsco.models.User;
 
 public interface UserDAO {
 	

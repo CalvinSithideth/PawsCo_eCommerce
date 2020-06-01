@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.pawsco.business.Order;
+import com.pawsco.models.Order;
 
 public class OrderMapper implements RowMapper<Order> {
 
