@@ -94,3 +94,10 @@ ProductID INT(40) NOT NULL,
 FOREIGN KEY(Email) REFERENCES Users (Email), 
 FOREIGN KEY(ProductID) REFERENCES Products (ProductID),
 PRIMARY KEY(Email, ProductID));
+
+CREATE TABLE SupplyOrders (
+OrderID INT PRIMARY KEY NOT NULL,
+ProductID INT NOT NULL,
+Quantity INT NOT NULL,
+FulfilledStatus BOOLEAN NOT NULL,
+FOREIGN KEY (ProductID) REFERENCES Products(ProductID));
