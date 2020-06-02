@@ -33,13 +33,13 @@
 			<div style="text-align: left; width: 600px; display: inline-block">
 
 				<c:forEach items="${order}" var="order">
-					<div style="display: block; width: 100%">
-						<div style="background-color: #3071A9; color: white; padding: 5px">
+					<div style="display: block; width: 100%; box-shadow: 2px 2px 4px #BBBBBB">
+						<div style="background-color: #3071A9; color: white; padding: 5px; border: 1px solid black">
 							<span>Order #: ${order.orderID}</span>
 							<br>
 							<span>Order Date: <fmt:formatDate value="${order.date}"/></span>
 						</div>
-						<table style="width: 100%; border: 1px solid black">
+						<table style="width: 100%; border: 1px solid black; border-top: none">
 							<tr style="background-color: #CCCCCC; border-bottom: 1px solid black">
 								<th style="width: 400px">Product</th>
 								<th>Quantity</th>
