@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;	
 import org.springframework.web.servlet.ModelAndView;	
 
-import com.pawsco.business.User;	
-import com.pawsco.business.WishListItem;
+import com.pawsco.models.User;	
+import com.pawsco.models.WishListItem;
 import com.pawsco.db.wishlist.WishListItemJDBCTemplate;	
 
 @Controller	

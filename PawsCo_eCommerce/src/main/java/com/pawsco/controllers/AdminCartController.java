@@ -7,8 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.pawsco.business.LineItem;
-import com.pawsco.cart.AdminCartService;
+import com.pawsco.models.LineItem;
+import com.pawsco.services.AdminCartService;
 
 @Controller
 public class AdminCartController {
