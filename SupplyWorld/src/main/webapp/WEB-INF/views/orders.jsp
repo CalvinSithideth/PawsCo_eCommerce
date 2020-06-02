@@ -33,7 +33,7 @@
 				<td>${order.productID}</td>
 				<td>${order.quantity}</td>
 				<td>
-					<form action="Fulfill/${order.orderID}/${order.quantity}" method="get">
+					<form action="Fulfill/${order.productID}/${order.quantity}" method="get">
 						<input type="hidden" name="productID"
 							value="<c:out value='${order.orderID}'/>"><input
 							type="submit" name="action" value="Fulfill">
