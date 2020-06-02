@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +9,7 @@
 <title>Order History</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link href="resources/css/product.css"
-	rel="stylesheet" type="text/css" />
 <link href="resources/css/header.css" rel="stylesheet" type="text/css">
-<link href="resources/css/cart.css" rel="stylesheet" type="text/css">
-<script type="text/javascript"
-	src="resources/js/filter.js"></script>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -21,55 +17,49 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<style>
+		td {padding: 5px}
+		th {padding: 5px}
+	</style>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 
-							<table>
-								
-								
-									<c:forEach var="order" items="${order }">
-											<tr align="center">
-											<c:forEach var="lineItem" items="${order.lineItems }">
-											<th style="padding: 2.5px; width: 10%;" rowspan="1">
-												<img
-													src="resources/images/${lineItem.product.imageFileName}"
-													style="max-width: 300px; max-height: 250px; width: auto; height: auto; display: block; margin-left: auto; margin-right: auto; margin-top: 10px" />
-												<c:out value="Name: ${lineItem.product.name}" />
-												<br>
-												<c:out value="Price: $${lineItem.product.price}" />
-												<br>
-												<c:out value="Quantiy: ${lineItem.quantity}" />
-												</th>
-											</c:forEach>
-												</tr>
-										</c:forEach>
-										
-							
+	<div style="width: 100%; text-align: center">
+		<div style="width: 80%; display: inline-block; text-align: center">
+			<br>
+			<h3>Order History</h3>
+			<br>
+			<div style="text-align: left; width: 600px; display: inline-block">
 
-							</table>
-						
-	<!-- 	<div style="text-align: center"> -->
-<!-- 	<h4>Orders</h4> -->
-<!-- 	<div id ="orderTable" style="text-align: center width: 80%; display: inline-block; text-align: left"> -->
-<!-- 	<table> -->
-<!-- 		<tr> -->
-<%-- 			<td><c:forEach var="order" items="${order }"> --%>
-<%-- 					<c:forEach var="lineItem" items="${order.lineItems }"> --%>
-<%-- 						<img src="resources/images/${lineItem.product.imageFileName}"  --%>
-<!-- 						style="max-width: 300px; max-height: 250px; width: auto; height: auto; -->
-<!-- 						 display: block; margin-left: auto; margin-right: auto; margin-top: 10px"/> -->
-<%-- 						 <c:out value="Name: ${lineItem.product.name}" /><br> --%>
-<%-- 						<c:out value="Price: $${lineItem.product.price}" /><br> --%>
-<%-- 						<c:out value="Quantiy: ${lineItem.quantity}" /> --%>
-<%-- 					</c:forEach> --%>
-<%-- 				</c:forEach> --%>
-<!-- 		</tr> -->
+				<c:forEach items="${order}" var="order">
+					<div style="display: block; width: 100%">
+						<div style="background-color: #3071A9; color: white; padding: 5px">
+							<span>Order #: ${order.orderID}</span>
+							<br>
+							<span>Order Date: <fmt:formatDate value="${order.date}"/></span>
+						</div>
+						<table style="width: 100%; border: 1px solid black">
+							<tr style="background-color: #CCCCCC; border-bottom: 1px solid black">
+								<th style="width: 400px">Product</th>
+								<th>Quantity</th>
+								<th>Price</th>
+							</tr>
+							<c:forEach items="${order.lineItems}" var="item">
+								<tr style="border-top: 1px solid #CCCCCC">
+									<td>${item.product.name}</td>
+									<td>${item.quantity}</td>
+									<td>$${item.product.price}</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+					<br>
+				</c:forEach>
+			</div>
+		</div>
+	</div>
 
-<!-- 	</table> -->
-<!-- 	</div> -->
-<!-- 	</div> -->
-
-<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
