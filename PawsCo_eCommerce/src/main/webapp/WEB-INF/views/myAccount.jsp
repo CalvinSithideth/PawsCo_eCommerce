@@ -39,7 +39,8 @@
 				</div>
 				<div class="edit_div">
 					<a href="orderHistory">Order History</a><br>
-					<a href="wishlist">Wishlist</a>
+					<a href="wishlist">Wishlist</a><br>
+					<a href="admin">Inventory</a>
 				</div>
 			</div>
 			<div class="vertical_line"></div>

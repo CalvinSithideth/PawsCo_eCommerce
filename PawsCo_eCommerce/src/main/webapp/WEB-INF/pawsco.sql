@@ -51,11 +51,7 @@ isAdmin BOOLEAN DEFAULT 0);
 
 INSERT INTO Users
 (Email, Password, FirstName, LastName, isAdmin) VALUES
-<<<<<<< HEAD
-('admin@pawsco.com', 1234, 'Admin', 'User', true);
-=======
 ('admin@pawsco.com', '1234', 'Admin', 'User', true);
->>>>>>> branch 'master' of https://github.com/CalvinSithideth/PawsCo_eCommerce.git
 
 CREATE TABLE Orders (
 OrderID INT PRIMARY KEY AUTO_INCREMENT,

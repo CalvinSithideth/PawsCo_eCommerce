@@ -25,6 +25,7 @@
 					<th class="prodName">Product Name</th>
 					<th>Current Stock</th>
 					<th>Reorder</th>
+					<th>Add to Bulk Order</th>
 				</tr>
 				<c:forEach var="product" items="${products}">
 						<tr>
@@ -42,6 +43,14 @@
 									<input type="hidden" name="id" value="${product.productID}">
 									<input type="number" name="quantity" step="1" min="0" value="0">
 									<input type="submit">
+								</form>
+							</td>
+							<td>
+								<form action="adminCart" method="post" >
+									<input type="hidden" name="id" value="${product.productID}">
+									<input type="number" name="quantity" step="1" min="0" value="0">
+									<input type="hidden" name="action" value="add">
+									<input type="submit" value ="Add">
 								</form>
 							</td>
 						</tr>

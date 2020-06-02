@@ -25,15 +25,15 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<c:choose>
-		<c:when test="${cart == null || cart.size() == 0}">
+		<c:when test="${adminCart == null || adminCart.size() == 0}">
 			<br>
 			<div style="width: 90%; text-align: center">
-				<h3>Your cart is empty</h3>
+				<h3>Your Order is empty</h3>
 			</div>
 		</c:when>
 		<c:otherwise>
 			<div style="width: 90%; text-align: center">
-				<h3>Shopping Cart</h3>
+				<h3>Your Order</h3>
 				<span style="color: red"><c:out
 						value="${checkoutErrorMessage}" /></span>
 			</div>
@@ -43,26 +43,24 @@
 					<th>Quantity</th>
 					<th>Remove Item</th>
 				</tr>
-				<c:forEach var="item" items="${sessionScope.cart}">
+				<c:forEach var="item" items="${sessionScope.adminCart}">
 					<tr>
-						<td><img style="width: 30%" class="card-img"
-							src="<c:url value='/resources/images/${item.product.imageFileName}'/>"></td>
+						<td>${item.product.name}</td>
 						<td id="quantityTd">
-							<form action="" method="post">
-								<input type="hidden" name="productID"
-									value="<c:out value='${item.product.productID}'/>"> <input
-									type=text name="quantity"
-									value="<c:out value='${item.quantity}'/>" id="quantity">
-								<input type="hidden" name="action" value="edit"> <input
-									type="submit" value="Update">
+							<form action="adminCart" method="post">
+								<input type="hidden" name="id" value="<c:out value='${item.product.productID}'/>"> 
+								<input type=text name="quantity" value="<c:out value='${item.quantity}'/>" id="quantity">
+								<input type="hidden" name="action" value="edit"> 
+								<input type="submit" value="Update">
 							</form>
 						</td>
 						<td>
-							<form action="cart" method="post">
-								<input type="hidden" name="productID"
-									value="<c:out value='${item.product.productID}'/>"> <input
-									type="hidden" name="action" value="remove"> <input
-									type="submit" value="Remove Item">
+							<form action="adminCart" method="post">
+								<input type="hidden" name="id" value="<c:out value='${item.product.productID}'/>"> 
+								<input type="hidden" name="quantity" value="<c:out value='${item.quantity}'/>" id="quantity">
+			
+								<input type="hidden" name="action" value="remove"> 
+								<input type="submit" value="Remove Item">
 							</form>
 						</td>
 					</tr>
@@ -71,13 +69,13 @@
 					<td>
 						<form action="admin" method="get">
 							<input type="hidden" name="action" value="shop"> <input
-								type="submit" value="Continue Shopping">
+								type="submit" value="Return to Inventory">
 						</form>
 					</td>
 					<td></td>
 					<td>
 						<form action="adminCheckout" method="get">
-							<input type="submit" value="Checkout">
+							<input type="submit" value="Submit Order">
 						</form>
 					</td>
 				</tr>

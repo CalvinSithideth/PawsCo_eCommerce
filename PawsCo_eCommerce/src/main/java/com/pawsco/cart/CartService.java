@@ -2,11 +2,10 @@ package com.pawsco.cart;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import com.pawsco.business.LineItem;
 import com.pawsco.models.ProductModel;
+
 
 public class CartService {
 
