@@ -1,0 +1,34 @@
+@charset "ISO-8859-1";
+
+th {
+	padding: 10px;
+	background-color: #3071A9;
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: #DDDDDD;
+}
+
+tr {
+	border: 1px solid black;
+}
+
+td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.prodName {
+	text-align: left;
+}
+
+input[type=number] {
+	width: 60px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+	opacity: 1;
+}

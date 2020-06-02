@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("addressForm")
-public class SoSleepyController {
+public class UserInfoEditController {
 
 	@GetMapping
-	public String sooooTired() {
+	public String editPage() {
 		return "addressFormPage";
 	}
 }
