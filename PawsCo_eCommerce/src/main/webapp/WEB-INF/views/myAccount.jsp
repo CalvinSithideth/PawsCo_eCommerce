@@ -40,7 +40,9 @@
 				<div class="edit_div">
 					<a href="orderHistory">Order History</a><br>
 					<a href="wishlist">Wishlist</a><br>
-					<a href="admin">Inventory</a>
+					<c:if test="${user.isAdmin}">
+						<a href="admin">Inventory</a>
+					</c:if>
 				</div>
 			</div>
 			<div class="vertical_line"></div>
