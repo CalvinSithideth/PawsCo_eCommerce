@@ -56,7 +56,7 @@
 			<td>
 				<form action="products" method="get">
 					<input type="hidden" name="action" value="shop"> <input
-						type="submit" value="Continue Shopping">
+						type="submit" value="View Products">
 				</form>
 			</td>
 			<td></td>

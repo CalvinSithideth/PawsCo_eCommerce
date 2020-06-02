@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	<footer id="footer">
-		<p>Copyright � 2020 All rights reserved.</p>
+		<p>Copyright @ 2020 All rights reserved.</p>
 	</footer>
 </body>
 </html>

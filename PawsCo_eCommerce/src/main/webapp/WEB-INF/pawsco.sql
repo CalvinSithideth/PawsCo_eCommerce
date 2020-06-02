@@ -89,6 +89,7 @@ FROM Products p
 JOIN Categories c ON p.CategoryID = c.CategoryID;
     
 CREATE TABLE WishlistMappings (
+id INT PRIMARY KEY AUTO_INCREMENT,
 Email NVARCHAR(40) NOT NULL,
 ProductID INT(40) NOT NULL,
 FOREIGN KEY(Email) REFERENCES Users (Email), 
