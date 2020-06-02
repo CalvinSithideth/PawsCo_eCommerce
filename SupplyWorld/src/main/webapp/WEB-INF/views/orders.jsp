@@ -18,25 +18,25 @@
 	</div>
 	<table>
 		<tr>
-			<th>Product</th>
-			<th>Price</th>
-			<th>Name</th>
+			<th>Order ID</th>
+			<th>Customer</th>
+			<th>Date</th>
+			<th>Product ID</th>
 			<th>Quantity</th>
-			<th>Remove Item</th>
+			<th>Fulfill</th>
 		</tr>
-		<c:forEach var="product" items="${product }">
+		<c:forEach var="order" items="${orderlist}">
 			<tr>
-				<td><img style="width: 30%" class="card-img"
-					src="<c:url value='/resources/images/${wishlist.product.imageFileName}'/>"></td>
-				<fmt:setLocale value="en_US" />
-				<td><fmt:formatNumber value="${wishlist.product.price}"
-						type="currency" /></td>
-				<td><c:out value="${wishlist.product.name}" /></td>
+				<td>${order.orderID}</td>
+				<td>${order.customer}</td>
+				<td>${order.date}</td>
+				<td>${order.productID}</td>
+				<td>${order.quantity}</td>
 				<td>
-					<form action="wishlist" method="post">
+					<form action="Fulfill/${order.orderID}/${order.quantity}" method="get">
 						<input type="hidden" name="productID"
-							value="<c:out value='${wishlist.product.productID}'/>"><input
-							type="submit" name="action" value="Remove Item">
+							value="<c:out value='${order.orderID}'/>"><input
+							type="submit" name="action" value="Fulfill">
 					</form>
 				</td>
 			</tr>

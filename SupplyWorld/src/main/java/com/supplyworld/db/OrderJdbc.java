@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -12,6 +13,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
+
+import com.supplyworld.models.OrderModel;
 
 @Component
 public class OrderJdbc {
@@ -40,6 +43,14 @@ public class OrderJdbc {
 		
 		return kh.getKey().intValue();
 	}
+	
+	public List<OrderModel> listOrders() {
+		String sql = "SELECT * FROM Orders";
+		List<OrderModel> orders = jdbcTemplate.query(sql, new OrderModelMapper());
+		return orders;
+	}
+	
+	
 	
 	
 }
