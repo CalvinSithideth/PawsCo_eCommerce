@@ -50,7 +50,17 @@ public class OrderJdbc {
 		return orders;
 	}
 	
-	
+	public boolean markOrderFulfilled(int orderID) {
+		String sql = "UPDATE Orders SET FulfilledStatus = true WHERE OrderID = " + orderID;
+		int rows = jdbcTemplate.update(sql);
+		if (rows > 0)
+		{
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 	
 }

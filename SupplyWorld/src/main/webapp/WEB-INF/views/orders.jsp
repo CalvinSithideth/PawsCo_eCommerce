@@ -26,20 +26,20 @@
 			<th>Fulfill</th>
 		</tr>
 		<c:forEach var="order" items="${orderlist}">
-			<tr>
-				<td>${order.orderID}</td>
-				<td>${order.customer}</td>
-				<td>${order.date}</td>
-				<td>${order.productID}</td>
-				<td>${order.quantity}</td>
-				<td>
-					<form action="Fulfill/${order.orderID}/${order.quantity}" method="get">
-						<input type="hidden" name="productID"
-							value="<c:out value='${order.orderID}'/>"><input
-							type="submit" name="action" value="Fulfill">
-					</form>
-				</td>
-			</tr>
+			<c:if test="${order.fulfilledStatus == false}">
+				<tr>
+					<td>${order.orderID}</td>
+					<td>${order.customer}</td>
+					<td>${order.date}</td>
+					<td>${order.productID}</td>
+					<td>${order.quantity}</td>
+					<td>
+						<form action="Fulfill/${order.orderID}/${order.productID}/${order.quantity}" method="get">
+							<input type="submit">
+						</form>
+					</td>
+				</tr>
+			</c:if>
 		</c:forEach>
 		<tr>
 			<td></td>
