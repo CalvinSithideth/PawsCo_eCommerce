@@ -31,17 +31,13 @@ public class AccountController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
-	public User user;
+	private User user;
 	@Autowired
-	public UserJDBCTemplate userDB;
+	private UserJDBCTemplate userDB;
 	@Autowired
-	public OrderJDBCTemplate orderDB;
+	private AddressJDBCTemplate addressDB;
 	@Autowired
-	public Order order;
-	@Autowired
-	public AddressJDBCTemplate addressDB;
-	@Autowired
-	public Address address;
+	private Address address;
 
 	@PostMapping(value = "register")
 	private String registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {
@@ -49,7 +45,6 @@ public class AccountController extends HttpServlet {
 		userDB = context.getBean(UserJDBCTemplate.class);
 		addressDB = context.getBean(AddressJDBCTemplate.class);
 
-		String url = null;
 		String message = null;
 		// get the user data
 		String email = request.getParameter("email");
