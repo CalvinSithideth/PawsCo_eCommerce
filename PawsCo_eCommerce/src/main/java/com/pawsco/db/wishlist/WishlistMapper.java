@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.pawsco.business.Product;
-import com.pawsco.business.User;
-import com.pawsco.business.WishListItem;
 import com.pawsco.db.products.ProductJDBCTemplate;
+import com.pawsco.models.Product;
+import com.pawsco.models.User;
+import com.pawsco.models.WishListItem;
 
 public class WishlistMapper implements RowMapper<WishListItem>{
 

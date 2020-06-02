@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.pawsco.business.Product;
+import com.pawsco.models.Product;
 
 public interface ProductDAO {
 

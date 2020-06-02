@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.pawsco.business.Address;
-import com.pawsco.business.Order;
-import com.pawsco.business.User;
 import com.pawsco.db.orders.OrderJDBCTemplate;
 import com.pawsco.db.users.AddressJDBCTemplate;
 import com.pawsco.db.users.UserJDBCTemplate;
+import com.pawsco.models.Address;
+import com.pawsco.models.Order;
+import com.pawsco.models.User;
 
 @Controller
 public class AccountController extends HttpServlet {
@@ -42,59 +42,6 @@ public class AccountController extends HttpServlet {
 	public AddressJDBCTemplate addressDB;
 	@Autowired
 	public Address address;
-
-//	@RequestMapping(method = RequestMethod.GET)
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-//			throws IOException, ServletException {
-//
-//		// get current action
-//		String action = request.getParameter("action");
-//		if (action == null) {
-//			action = "home"; // default action
-//		}
-//
-//		// perform action and set URL to appropriate page
-//		String url = "/home";
-//		if (action.equals("home")) {
-//			url = "/home";
-//		} else if (action.equals("registerUser")) {
-//			try {
-//				url = registerUser(request, response);
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		} else if (action.equals("logout")) {
-//			url = logoutUser(request, response);
-//		} else if (action.equals("viewCookies")) {
-//
-//			url = "/view_cookies.jsp";
-//		} else if (action.equals("deleteCookies")) {
-//			url = deleteCookies(request, response);
-//		}
-//		// forward to the view
-//		getServletContext().getRequestDispatcher(url).forward(request, response);
-//	}
-//
-//	@RequestMapping(method = RequestMethod.POST)
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//
-//		String action = request.getParameter("action");
-//
-//		// perform action and set URL to appropriate page
-//		String url = "/home";
-//		if (action.equals("registerUser")) {
-//			try {
-//				url = registerUser(request, response);
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		// forward to the view
-//		response.sendRedirect("home");
-//	}
 
 	@PostMapping(value = "register")
 	private String registerUser(HttpServletRequest request, HttpServletResponse response) throws SQLException {

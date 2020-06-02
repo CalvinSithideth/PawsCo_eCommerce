@@ -1,4 +1,4 @@
-package com.pawsco.checkout;
+package com.pawsco.services;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -7,12 +7,12 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.pawsco.business.LineItem;
-import com.pawsco.business.Product;
-import com.pawsco.business.User;
 import com.pawsco.db.orders.LineItemJDBCTemplate;
 import com.pawsco.db.orders.OrderJDBCTemplate;
+import com.pawsco.models.LineItem;
+import com.pawsco.models.Product;
 import com.pawsco.models.ProductModel;
+import com.pawsco.models.User;
 
 public class CheckoutService {
 	

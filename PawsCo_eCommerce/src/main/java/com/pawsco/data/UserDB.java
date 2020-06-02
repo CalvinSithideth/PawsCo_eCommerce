@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import org.springframework.stereotype.Component;
 
-import com.pawsco.business.User;
+import com.pawsco.models.User;
 
 @Component
 public class UserDB {

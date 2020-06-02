@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.pawsco.business.Product;
+import com.pawsco.models.Product;
 
 @Component
 public class ProductJDBCTemplate implements ProductDAO {

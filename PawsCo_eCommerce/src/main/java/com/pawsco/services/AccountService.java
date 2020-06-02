@@ -1,10 +1,10 @@
-package com.pawsco.account;
+package com.pawsco.services;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.pawsco.business.Address;
 import com.pawsco.db.users.AddressJDBCTemplate;
+import com.pawsco.models.Address;
 
 public class AccountService {
 

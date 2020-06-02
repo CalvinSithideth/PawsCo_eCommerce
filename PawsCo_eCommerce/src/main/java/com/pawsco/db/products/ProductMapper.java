@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.pawsco.business.Product;
+import com.pawsco.models.Product;
 
 public class ProductMapper implements RowMapper<Product> {
 

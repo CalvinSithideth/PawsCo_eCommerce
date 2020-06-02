@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.pawsco.business.LineItem;
-import com.pawsco.business.Product;
 import com.pawsco.db.products.ProductJDBCTemplate;
+import com.pawsco.models.LineItem;
+import com.pawsco.models.Product;
 
 public class LineItemMapper implements RowMapper<LineItem> {
 

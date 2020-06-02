@@ -1,4 +1,4 @@
-package com.pawsco.business;
+package com.pawsco.models;
 
 import java.sql.Date;
 import java.util.List;
