@@ -135,7 +135,7 @@ public class AccountController extends HttpServlet {
 			request.setAttribute("message", message);
 			
 			if(user.getIsAdmin()) {
-				url = "admin";
+				url = "redirect:admin";
 			}else {
 				url = "home";
 			}

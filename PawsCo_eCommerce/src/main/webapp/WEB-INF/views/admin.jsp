@@ -56,16 +56,29 @@
 						</tr>
 				</c:forEach>
 			</table>
-			<br>
 			
-			<h1>Supply Order History</h1>
-			<table>
+			<br><h3>Supply Order History</h3><br>
+			
+			<table style="display: inline-block">
+				<tr>
+					<th>Order #</th>
+					<th>Product ID</th>
+					<th>Quantity</th>
+					<th>Order Status</th>
+				</tr>
 				<c:forEach var="order" items="${supplyOrders}">
 					<tr>
 						<td>${order.orderID}</td>
-						<td>${order.productID}<td>
+						<td>${order.productID}</td>
 						<td>${order.quantity}</td>
-						<td>${order.fulfilledStatus}</td>
+						<c:choose>
+							<c:when test="${order.fulfilledStatus}">
+								<td>Completed</td>
+							</c:when>
+							<c:otherwise>
+								<td>Pending</td>
+							</c:otherwise>
+						</c:choose>
 					</tr>
 				</c:forEach>
 			</table>

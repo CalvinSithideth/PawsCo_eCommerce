@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Supply Orders</title>
 <link rel="stylesheet" type="text/css" href="resources/css/order.css">
 </head>
 <%@ include file="header.jsp"%>
@@ -41,13 +41,6 @@
 				</tr>
 			</c:if>
 		</c:forEach>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
 	</table>
 	<br>
 	<footer id="footer">

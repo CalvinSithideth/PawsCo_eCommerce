@@ -49,6 +49,7 @@ th, td {
 	border: 1px solid black;
 	text-align: left;
 	padding: .5em;
+	background-color: white;
 }
 
 input[type=text] {
